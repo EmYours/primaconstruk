@@ -65,26 +65,82 @@ function initContactForm() {
     const message = document.getElementById('formMessage');
     if (!form || !message) return;
 
+    // Helper to sanitize HTML tags and trim inputs
+    const sanitizeInput = (val) => {
+        return val
+            .replace(/<[^>]*>/g, '') // Strip HTML tags
+            .replace(/[&<>"'/]/g, m => { // Escape characters
+                const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;' };
+                return map[m];
+            })
+            .trim();
+    };
+
     form.addEventListener('submit', e => {
         e.preventDefault();
+        
         const btn      = form.querySelector('.btn-submit');
         const btnText  = btn.querySelector('span');
         const original = btnText.textContent;
 
-        btn.disabled       = true;
-        btnText.textContent = 'Processing Registry…';
-        message.className  = 'form-message';
+        // Extract and sanitize inputs
+        const nameVal     = sanitizeInput(document.getElementById('clientName').value);
+        const emailVal    = sanitizeInput(document.getElementById('clientEmail').value);
+        const phoneVal    = sanitizeInput(document.getElementById('clientPhone').value);
+        const locationVal = sanitizeInput(document.getElementById('projectLocation').value);
+        const notesVal    = sanitizeInput(document.getElementById('projectNotes').value);
+
+        message.className = 'form-message';
         message.style.display = 'none';
 
+        // 1. Validation Checks
+        if (nameVal.length < 2) {
+            showError('Please enter a valid name (at least 2 characters).');
+            return;
+        }
+
+        // Email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+            showError('Please enter a valid email address.');
+            return;
+        }
+
+        // Phone regex (allowing optional leading +, spaces, hyphens, and digits)
+        const phoneRegex = /^[\d\s\-+\(\)]{7,20}$/;
+        if (!phoneRegex.test(phoneVal)) {
+            showError('Please enter a valid contact number (at least 7 digits).');
+            return;
+        }
+
+        if (locationVal.length < 3) {
+            showError('Please enter a valid project location.');
+            return;
+        }
+
+        // Process submission loader simulation
+        btn.disabled = true;
+        btnText.textContent = 'Sending Application…';
+
+        // If they update the action URL in index.html to Formspree, they can do a real fetch:
+        // fetch(form.action || 'https://formspree.io/f/YOUR_ID_HERE', { method: 'POST', body: new FormData(form)... })
+        
         setTimeout(() => {
-            const name = document.getElementById('clientName').value;
-            btn.disabled       = false;
+            btn.disabled = false;
             btnText.textContent = original;
-            message.textContent = `Thank you, ${name}. Your project registry application has been received. Our design directors will contact you within 48 hours.`;
+            
+            message.textContent = `Thank you, ${nameVal}. Your project registry application has been received successfully! Our design directors will reach out to you at ${emailVal} within 48 hours.`;
             message.classList.add('success');
+            message.style.display = 'block';
             form.reset();
         }, 1500);
     });
+
+    function showError(text) {
+        message.textContent = text;
+        message.classList.add('error');
+        message.style.display = 'block';
+    }
 }
 
 // ── Portfolio Loader ───────────────────────────────────────────────────────
