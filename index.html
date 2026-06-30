@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMA Construk | Boutique Design, Build & Style Firm</title>
+    <meta name="description" content="PRIMA Construk is a design-forward, boutique design-and-build firm specializing in premium residential and commercial structures. Now accepting projects for 2026.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 22V8.5L12 3L20 8.5V22H15V13H9V22H4Z" fill="currentColor"/>
+                    <path d="M12 9.5L16 12.5V22H18V10L12 6L6 10V22H8V12.5L12 9.5Z" fill="var(--color-brass-gold)"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="brand-name">PRIMA</span>
+                    <span class="brand-sub">CONSTRUK</span>
+                </div>
+            </a>
+            <nav class="desktop-nav">
+                <a href="#pillars" class="nav-link">Pillars</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#details" class="nav-link">Details</a>
+                <a href="#contact" class="nav-btn">Inquire for 2026</a>
+            </nav>
+            <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#pillars" class="mobile-link">Pillars</a>
+            <a href="#portfolio" class="mobile-link">Portfolio</a>
+            <a href="#details" class="mobile-link">Details</a>
+            <a href="#contact" class="mobile-btn">Inquire for 2026</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-overlay" style="background-image: url('assets/hero.png');"></div>
+        <div class="hero-content-wrapper">
+            <div class="announcement-badge animate-fade-in">
+                <span class="badge-dot"></span>
+                <span>NOW ACCEPTING PROJECTS FOR 2026</span>
+            </div>
+            <h1 class="hero-title animate-slide-up">
+                Building Structures.<br>
+                <span class="serif-accent">Shaping Experiences.</span>
+            </h1>
+            <p class="hero-subtitle animate-slide-up-delayed">
+                Quezon City's boutique design, build, and styling firm. Crafting premium architectural residences and intentional interior spaces.
+            </p>
+            <div class="hero-actions animate-slide-up-delayed">
+                <a href="#contact" class="btn-primary">Book Consultation</a>
+                <a href="#portfolio" class="btn-secondary">View Gallery</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- The Pillars (Design, Build, Style) -->
+    <section class="pillars-section" id="pillars">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">OUR CAPABILITIES</span>
+                <h2 class="section-title">The Three Pillars</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-num">01</div>
+                    <div class="pillar-icon-box">
+                        <i data-lucide="pen-tool"></i>
+                    </div>
+                    <h3 class="pillar-title">Design</h3>
+                    <p class="pillar-description">
+                        Architectural concept, space planning, structural blueprints, and photorealistic 3D rendering tailored to bring your vision into architectural form.
+                    </p>
+                    <ul class="pillar-list">
+                        <li><i data-lucide="chevron-right"></i> Conceptual Blueprints</li>
+                        <li><i data-lucide="chevron-right"></i> Space Optimization</li>
+                        <li><i data-lucide="chevron-right"></i> 3D Visualization</li>
+                    </ul>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-num">02</div>
+                    <div class="pillar-icon-box">
+                        <i data-lucide="hammer"></i>
+                    </div>
+                    <h3 class="pillar-title">Build</h3>
+                    <p class="pillar-description">
+                        Full structural construction, site engineering, general contracting, and meticulous project management to deliver code-compliant, premium builds.
+                    </p>
+                    <ul class="pillar-list">
+                        <li><i data-lucide="chevron-right"></i> Engineering Oversight</li>
+                        <li><i data-lucide="chevron-right"></i> Construction Management</li>
+                        <li><i data-lucide="chevron-right"></i> Premium Craftsmanship</li>
+                    </ul>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-num">03</div>
+                    <div class="pillar-icon-box">
+                        <i data-lucide="palette"></i>
+                    </div>
+                    <h3 class="pillar-title">Style</h3>
+                    <p class="pillar-description">
+                        Post-construction interior curation, bespoke millwork, custom furniture placement, and styling of surfaces to make a space truly look and feel complete.
+                    </p>
+                    <ul class="pillar-list">
+                        <li><i data-lucide="chevron-right"></i> Interior Material Curation</li>
+                        <li><i data-lucide="chevron-right"></i> Bespoke Millwork</li>
+                        <li><i data-lucide="chevron-right"></i> Turnkey Styling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Portfolio Showcase Grid -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">PROJECT ARCHIVE</span>
+                <h2 class="section-title">Selected Case Studies</h2>
+                <div class="title-underline"></div>
+                <p class="section-description-text">
+                    Select a project below to open the complete details, full photo gallery, and interactive Before & After transformation view.
+                </p>
+            </div>
+            
+            <div class="portfolio-grid scroll-reveal" id="portfolioGrid">
+                <!-- Dynamically Rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Materiality & Details Gallery -->
+    <section class="details-section" id="details">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">MATERIALITY & CRAFTSMANSHIP</span>
+                <h2 class="section-title">Details. Intention. Experience.</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="details-grid">
+                <!-- Detail Card 1 -->
+                <div class="detail-card scroll-reveal">
+                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail3.jpg'); background-position: center;"></div>
+                    <div class="detail-content">
+                        <h4>Fluted Wood Panels</h4>
+                        <p>Bespoke oak timber detailing that adds geometric rhythm and natural warmth to drop ceilings and focal walls.</p>
+                    </div>
+                </div>
+                <!-- Detail Card 2 -->
+                <div class="detail-card scroll-reveal">
+                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail1.jpg'); background-position: center;"></div>
+                    <div class="detail-content">
+                        <h4>Travertine &amp; Plaster</h4>
+                        <p>Tactile, organic stone surfaces combined with soft stone-wash plaster to mimic natural formations.</p>
+                    </div>
+                </div>
+                <!-- Detail Card 3 -->
+                <div class="detail-card scroll-reveal">
+                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail5.jpg'); background-position: center;"></div>
+                    <div class="detail-content">
+                        <h4>Brushed Antique Gold</h4>
+                        <p>Sophisticated hardware and metallic fixtures providing elegant, warm-toned luxury accents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation / Booking Form -->
+    <section class="contact-section" id="contact">
+        <div class="section-container form-grid">
+            <div class="contact-info-panel scroll-reveal">
+                <span class="section-subtitle">REGISTRY</span>
+                <h2 class="section-title">Book a Consultation</h2>
+                <p class="contact-subtext">
+                    We are selectively booking turnkey residential and commercial projects for the 2026 calendar. Reach out to secure an introductory meeting with our design directors.
+                </p>
+                <div class="contact-channels">
+                    <div class="channel-item">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <span class="channel-label">Email Address</span>
+                            <a href="mailto:primaconstruk@gmail.com" class="channel-value">primaconstruk@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="channel-item">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <span class="channel-label">Direct Line</span>
+                            <span class="channel-value">(+63) 916-212-5661</span>
+                            <span class="channel-value">(+63) 917-711-2190</span>
+                        </div>
+                    </div>
+                    <div class="channel-item">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <span class="channel-label">Headquarters</span>
+                            <span class="channel-value">Quezon City, Metro Manila, Philippines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-panel scroll-reveal">
+                <form class="inquiry-form" id="inquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientName">Your Name *</label>
+                            <input type="text" id="clientName" required placeholder="e.g. Maria Santos">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email Address *</label>
+                            <input type="email" id="clientEmail" required placeholder="e.g. maria@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientPhone">Contact Number *</label>
+                            <input type="tel" id="clientPhone" required placeholder="e.g. +63 917 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectLocation">Project Location *</label>
+                            <input type="text" id="projectLocation" required placeholder="e.g. Quezon City">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectScope">Scope of Services Needed</label>
+                        <select id="projectScope">
+                            <option value="turnkey">Full Turnkey (Design + Build + Style)</option>
+                            <option value="design-build">Design & Build</option>
+                            <option value="interior-style">Interior Design & Styling</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectNotes">Tell Us About Your Space</label>
+                        <textarea id="projectNotes" rows="4" placeholder="Briefly describe the vision for your property, size, and specific requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span>Send Inquiry Application</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Overlay Project Detail Modal -->
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-wrapper">
+            <button class="modal-close" id="modalClose" aria-label="Close details">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamically Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Image Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">
+            <i data-lucide="x"></i>
+        </button>
+        
+        <button class="lightbox-nav nav-prev" id="lightboxPrev" aria-label="Previous Image">
+            <i data-lucide="chevron-left"></i>
+        </button>
+        
+        <div class="lightbox-content-box">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+            <div class="lightbox-meta">
+                <span class="lightbox-counter" id="lightboxCounter">Image 1 of 8</span>
+                <span class="lightbox-hint"><i data-lucide="info"></i> Swipe or use arrow keys to navigate</span>
+            </div>
+        </div>
+        
+        <button class="lightbox-nav nav-next" id="lightboxNext" aria-label="Next Image">
+            <i data-lucide="chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 22V8.5L12 3L20 8.5V22H15V13H9V22H4Z" fill="currentColor"/>
+                        <path d="M12 9.5L16 12.5V22H18V10L12 6L6 10V22H8V12.5L12 9.5Z" fill="var(--color-brass-gold)"/>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="brand-name">PRIMA</span>
+                        <span class="brand-sub">CONSTRUK</span>
+                    </div>
+                </div>
+                <p class="footer-tagline">Building Structures. Shaping Experiences.</p>
+            </div>
+            
+            <div class="footer-links">
+                <span class="footer-header">Explore</span>
+                <a href="#hero">Back to Top</a>
+                <a href="#pillars">Pillars</a>
+                <a href="#portfolio">Portfolio Archive</a>
+                <a href="#details">Materiality</a>
+            </div>
+
+            <div class="footer-social">
+                <span class="footer-header">Follow Us</span>
+                <a href="https://instagram.com/primaconstruk" target="_blank" class="social-link">
+                    <i data-lucide="instagram"></i>
+                    <span>@primaconstruk</span>
+                </a>
+                <a href="https://facebook.com/primaconstruk" target="_blank" class="social-link">
+                    <i data-lucide="facebook"></i>
+                    <span>PRIMA Construk</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PRIMA Construk. All rights reserved. Boutique Design & Build in Quezon City, Philippines.</p>
+        </div>
+    </footer>
+
+    <script src="assets/projects-data.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

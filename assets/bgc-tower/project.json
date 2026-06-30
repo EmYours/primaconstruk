@@ -1,0 +1,26 @@
+{
+    "id": "bgc-tower",
+    "title": "BGC Tower Fit-Out",
+    "location": "Bonifacio Global City, Taguig",
+    "year": "2026",
+    "summary": "A design-forward corporate workspace fit-out highlighting curved minimalist acoustics and warm ambient lighting.",
+    "description": "A premium corporate headquarters design and build project located in the heart of Bonifacio Global City. The BGC Tower project features double-glazed acoustic floor-to-ceiling glass panel partitioning, bespoke oak reception counters, curved minimalist plaster ceiling details, and warm recessed architectural lighting. Tailored to represent design-forward workspace productivity and executive styling.",
+    "coverImage": "cover.jpg",
+    "beforeImage": "",
+    "afterImage": "",
+    "gallery": [
+        "cover.jpg",
+        "detail1.jpg",
+        "detail2.jpg",
+        "detail3.jpg",
+        "detail4.jpg",
+        "detail5.jpg",
+        "detail6.jpg"
+    ],
+    "highlights": [
+        { "label": "Acoustic Glass", "value": "Double-Glazed" },
+        { "label": "Reception Desk", "value": "Bespoke Curved Oak" },
+        { "label": "Ceiling Detail", "value": "Curved Plaster" },
+        { "label": "Scope", "value": "Design & Build" }
+    ]
+}
