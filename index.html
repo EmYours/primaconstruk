@@ -19,9 +19,11 @@
     <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 22V8.5L12 3L20 8.5V22H15V13H9V22H4Z" fill="currentColor"/>
-                    <path d="M12 9.5L16 12.5V22H18V10L12 6L6 10V22H8V12.5L12 9.5Z" fill="var(--color-brass-gold)"/>
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer Nesting Shape -->
+                    <path d="M70 20 L25 50 L25 100 L45 100 L45 60 L70 42 L135 85 L145 78 Z" fill="currentColor"/>
+                    <!-- Inner Nesting Shape -->
+                    <path d="M70 54 L48 68 L48 100 L68 100 L68 78 L95 60 L120 77 L127 72 Z" fill="var(--color-brass-gold)"/>
                 </svg>
                 <div class="logo-text">
                     <span class="brand-name">PRIMA</span>
@@ -30,6 +32,7 @@
             </a>
             <nav class="desktop-nav">
                 <a href="#pillars" class="nav-link">Pillars</a>
+                <a href="#company" class="nav-link">Company</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#details" class="nav-link">Details</a>
                 <a href="#contact" class="nav-btn">Inquire for 2026</a>
@@ -41,6 +44,7 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="#pillars" class="mobile-link">Pillars</a>
+            <a href="#company" class="mobile-link">Company</a>
             <a href="#portfolio" class="mobile-link">Portfolio</a>
             <a href="#details" class="mobile-link">Details</a>
             <a href="#contact" class="mobile-btn">Inquire for 2026</a>
@@ -134,6 +138,94 @@
         </div>
     </section>
 
+    <!-- The Company Section (About, Mission, Vision, Values) -->
+    <section class="company-section" id="company">
+        <div class="section-container">
+            <div class="company-grid">
+                <!-- Left Column: About Us & Mission/Vision -->
+                <div class="company-info-panel scroll-reveal">
+                    <span class="section-subtitle">THE COMPANY</span>
+                    <h2 class="section-title">Crafting Spaces. Uplifting Life.</h2>
+                    <div class="title-underline"></div>
+                    
+                    <div class="company-block">
+                        <h3 class="company-block-title">ABOUT US</h3>
+                        <p class="company-block-text">
+                            At Prima Construk, we don't just build structures — we shape experiences. As a boutique design and build studio based in Quezon City, our passion lies in crafting spaces that uplift everyday life through inspired, thoughtful design.
+                        </p>
+                        <p class="company-block-text">
+                            Guided by our core values — <strong>Personal, Integrity, and Care</strong> — we blend creativity with engineering craftsmanship to deliver iconic, sustainable spaces that leave a lasting impression. Every project is a promise: <em>to design with purpose, build with heart, and always put people first.</em>
+                        </p>
+                    </div>
+
+                    <div class="company-block">
+                        <h3 class="company-block-title">MISSION &amp; VISION</h3>
+                        <div class="mv-item">
+                            <span class="mv-label">Vision</span>
+                            <p class="mv-text">
+                                At Prima Construk, we envision a world where exceptional design and construction elevate everyday life. Through a collaborative and streamlined process, we deliver quality, structural integrity, and sustainability — building trust with every project. Our goal is to craft meaningful spaces while serving as responsible stewards of the environment.
+                            </p>
+                        </div>
+                        <div class="mv-item">
+                            <span class="mv-label">Mission</span>
+                            <p class="mv-text">
+                                Our mission is to improve lives through thoughtful design. We are committed to client satisfaction, empowering our team through growth and mentorship, and making a positive environmental impact by creating spaces that inspire and enrich the world around us.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Core Values Cards -->
+                <div class="company-values-panel scroll-reveal">
+                    <span class="section-subtitle text-right-desktop">OUR ANCHOR</span>
+                    <h2 class="section-title text-right-desktop">Core Values</h2>
+                    <div class="title-underline right-align-desktop"></div>
+
+                    <div class="values-stack">
+                        <!-- Value card 1 -->
+                        <div class="value-card">
+                            <div class="value-icon-box">
+                                <i data-lucide="sparkles"></i>
+                            </div>
+                            <div class="value-card-content">
+                                <h4 class="value-title">Personal</h4>
+                                <p class="value-description">
+                                    We tailor every design to reflect the unique needs, lifestyle, and aspirations of our clients. Your space should tell your story.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Value card 2 -->
+                        <div class="value-card">
+                            <div class="value-icon-box">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                            <div class="value-card-content">
+                                <h4 class="value-title">Integrity</h4>
+                                <p class="value-description">
+                                    We build trust through complete transparency, honesty, and reliability in every detail, project milestone, and cost estimation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Value card 3 -->
+                        <div class="value-card">
+                            <div class="value-icon-box">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div class="value-card-content">
+                                <h4 class="value-title">Care</h4>
+                                <p class="value-description">
+                                    We prioritize people — their well-being, satisfaction, and the journey they take with us — from the first sketch to the final build.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Dynamic Portfolio Showcase Grid -->
     <section class="portfolio-section" id="portfolio">
         <div class="section-container">
@@ -141,9 +233,6 @@
                 <span class="section-subtitle">PROJECT ARCHIVE</span>
                 <h2 class="section-title">Selected Case Studies</h2>
                 <div class="title-underline"></div>
-                <p class="section-description-text">
-                    Select a project below to open the complete details, full photo gallery, and interactive Before & After transformation view.
-                </p>
             </div>
             
             <div class="portfolio-grid scroll-reveal" id="portfolioGrid">
@@ -309,9 +398,11 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="logo">
-                    <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 22V8.5L12 3L20 8.5V22H15V13H9V22H4Z" fill="currentColor"/>
-                        <path d="M12 9.5L16 12.5V22H18V10L12 6L6 10V22H8V12.5L12 9.5Z" fill="var(--color-brass-gold)"/>
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer Nesting Shape -->
+                        <path d="M70 20 L25 50 L25 100 L45 100 L45 60 L70 42 L135 85 L145 78 Z" fill="currentColor"/>
+                        <!-- Inner Nesting Shape -->
+                        <path d="M70 54 L48 68 L48 100 L68 100 L68 78 L95 60 L120 77 L127 72 Z" fill="var(--color-brass-gold)"/>
                     </svg>
                     <div class="logo-text">
                         <span class="brand-name">PRIMA</span>
@@ -325,6 +416,7 @@
                 <span class="footer-header">Explore</span>
                 <a href="#hero">Back to Top</a>
                 <a href="#pillars">Pillars</a>
+                <a href="#company">Company Profile</a>
                 <a href="#portfolio">Portfolio Archive</a>
                 <a href="#details">Materiality</a>
             </div>

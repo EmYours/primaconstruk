@@ -565,6 +565,174 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   THE COMPANY (ABOUT, MISSION, VISION, VALUES)
+   ========================================================================== */
+
+.company-section {
+    background-color: var(--color-travertine-cream);
+    border-top: 1px solid rgba(27, 48, 47, 0.05);
+    position: relative;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.company-block {
+    margin-top: 40px;
+}
+
+.company-block-title {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-brass-gold);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.company-block-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-brass-gold);
+}
+
+.company-block-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.company-block-text strong {
+    color: var(--color-forest-slate);
+    font-weight: 600;
+}
+
+.mv-item {
+    margin-bottom: 24px;
+}
+
+.mv-label {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-forest-slate);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.mv-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* Values stack (Right column) */
+.values-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(27, 48, 47, 0.04);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+    transition: var(--transition-smooth);
+}
+
+.value-card:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 12px 30px rgba(27, 48, 47, 0.05);
+    border-color: rgba(197, 164, 126, 0.2);
+}
+
+.value-icon-box {
+    background-color: rgba(197, 164, 126, 0.08);
+    color: var(--color-brass-gold);
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.value-card:hover .value-icon-box {
+    background-color: var(--color-forest-slate);
+    color: var(--color-travertine-cream);
+}
+
+.value-icon-box svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.5;
+}
+
+.value-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-forest-slate);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.value-description {
+    font-size: 0.9rem;
+    line-height: 1.625;
+    color: var(--color-text-muted);
+}
+
+/* Helper align utility */
+.text-right-desktop {
+    text-align: right;
+}
+
+.right-align-desktop {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Media Queries for Company */
+@media (max-width: 991px) {
+    .company-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .text-right-desktop {
+        text-align: left;
+    }
+    
+    .right-align-desktop {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    
+    .value-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* ==========================================================================
    DYNAMIC PORTFOLIO GRID
    ========================================================================== */
 
