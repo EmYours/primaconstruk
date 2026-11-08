@@ -1,11 +1,6 @@
 const siteHeader = document.getElementById('siteHeader');
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
-const comparison = document.getElementById('comparison');
-const comparisonRange = document.getElementById('comparisonRange');
-const afterWrap = document.getElementById('afterWrap');
-const afterImage = document.getElementById('afterImage');
-const comparisonLine = document.getElementById('comparisonLine');
 const projectDialog = document.getElementById('projectDialog');
 const dialogContent = document.getElementById('dialogContent');
 const dialogClose = document.getElementById('dialogClose');
@@ -55,20 +50,6 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 });
 
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
-
-function syncComparison() {
-    if (!comparison || !comparisonRange || !afterWrap || !afterImage || !comparisonLine) return;
-    const value = Number(comparisonRange.value);
-    const width = comparison.getBoundingClientRect().width;
-    afterWrap.style.width = `${value}%`;
-    afterImage.style.width = `${width}px`;
-    comparisonLine.style.left = `${value}%`;
-}
-
-comparisonRange?.addEventListener('input', syncComparison);
-window.addEventListener('resize', syncComparison);
-window.addEventListener('load', syncComparison);
-syncComparison();
 
 function projectWithPaths(project) {
     const base = `assets/${project.id}/`;
