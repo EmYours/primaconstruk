@@ -1,6 +1,11 @@
 const siteHeader = document.getElementById('siteHeader');
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
+const heroStage = document.querySelector('.hero-stage');
+const hero = document.getElementById('hero');
+const heroCopy = document.getElementById('heroCopy');
+const scrollProgress = document.getElementById('scrollProgress');
+const parallaxImages = document.querySelectorAll('.material-wide img, .material-tall img, .studio-visual img');
 const projectDialog = document.getElementById('projectDialog');
 const dialogContent = document.getElementById('dialogContent');
 const dialogClose = document.getElementById('dialogClose');
@@ -18,6 +23,71 @@ function updateHeader() {
 
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
+
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+let motionFrame = 0;
+
+const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
+
+function updateScrollMotion() {
+    motionFrame = 0;
+
+    if (scrollProgress) {
+        const scrollablePage = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        scrollProgress.style.transform = `scaleY(${clamp(window.scrollY / scrollablePage)})`;
+    }
+
+    if (!heroStage || !hero || !heroCopy) return;
+
+    const motionEnabled = window.innerWidth > 820 && !reducedMotionQuery.matches;
+
+    parallaxImages.forEach(image => {
+        if (!motionEnabled) {
+            image.style.setProperty('--parallax-y', '0px');
+            return;
+        }
+
+        const bounds = image.parentElement.getBoundingClientRect();
+        const viewportOffset = (bounds.top + (bounds.height / 2) - (window.innerHeight / 2)) / window.innerHeight;
+        image.style.setProperty('--parallax-y', `${clamp(viewportOffset, -1, 1) * -18}px`);
+    });
+
+    if (!motionEnabled) {
+        hero.style.setProperty('--hero-shift', '0px');
+        hero.style.setProperty('--hero-translate', '0px');
+        hero.style.setProperty('--hero-copy-opacity', '1');
+        hero.style.setProperty('--hero-copy-y', '0px');
+        hero.style.setProperty('--hero-brand-opacity', '0');
+        hero.style.setProperty('--hero-brand-y', '1.5rem');
+        hero.style.setProperty('--hero-shade', '0');
+        return;
+    }
+
+    const stageBounds = heroStage.getBoundingClientRect();
+    const scrollDistance = Math.max(1, heroStage.offsetHeight - window.innerHeight);
+    const progress = clamp(-stageBounds.top / scrollDistance);
+    const easedProgress = progress * progress * (3 - (2 * progress));
+    const copyWidth = heroCopy.getBoundingClientRect().width;
+    const brandProgress = clamp((progress - .5) / .36);
+
+    hero.style.setProperty('--hero-shift', `${easedProgress * copyWidth}px`);
+    hero.style.setProperty('--hero-translate', `${easedProgress * copyWidth * -1}px`);
+    hero.style.setProperty('--hero-copy-opacity', String(clamp(1 - (progress * 1.75))));
+    hero.style.setProperty('--hero-copy-y', `${progress * -28}px`);
+    hero.style.setProperty('--hero-brand-opacity', String(brandProgress));
+    hero.style.setProperty('--hero-brand-y', `${(1 - brandProgress) * 24}px`);
+    hero.style.setProperty('--hero-shade', String(brandProgress * .22));
+}
+
+function requestMotionUpdate() {
+    if (motionFrame) return;
+    motionFrame = window.requestAnimationFrame(updateScrollMotion);
+}
+
+updateScrollMotion();
+window.addEventListener('scroll', requestMotionUpdate, { passive: true });
+window.addEventListener('resize', requestMotionUpdate, { passive: true });
+reducedMotionQuery.addEventListener?.('change', requestMotionUpdate);
 
 function closeMenu() {
     menuToggle?.setAttribute('aria-expanded', 'false');
