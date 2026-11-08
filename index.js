@@ -1,6 +1,7 @@
 const siteHeader = document.getElementById('siteHeader');
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
+const socialFloat = document.querySelector('.social-float');
 const heroStage = document.querySelector('.hero-stage');
 const hero = document.getElementById('hero');
 const heroCopy = document.getElementById('heroCopy');
@@ -24,6 +25,7 @@ const escapeHTML = (value = '') => String(value)
 
 function updateHeader() {
     siteHeader?.classList.toggle('scrolled', window.scrollY > 24);
+    socialFloat?.classList.toggle('compact', window.scrollY > window.innerHeight * .65);
 }
 
 updateHeader();
