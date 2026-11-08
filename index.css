@@ -737,9 +737,11 @@ ol {
 
 .comparison {
     position: relative;
-    width: 100%;
-    height: min(62vw, 78vh, 54rem);
-    min-height: 32rem;
+    width: min(100%, calc(min(72vh, 50rem) * 1.6));
+    height: min(72vh, 50rem);
+    min-height: 0;
+    margin-right: auto;
+    margin-left: auto;
     overflow: hidden;
     background: #c9c4ba;
     cursor: ew-resize;
@@ -757,19 +759,21 @@ ol {
 
 .comparison-before,
 .comparison-after {
-    object-fit: cover;
-    object-position: center 46%;
+    object-fit: contain;
+    object-position: center;
+    background: #d1cabd;
 }
 
 .comparison-after-wrap {
     z-index: 1;
     width: 50%;
     overflow: hidden;
+    background: #d1cabd;
     will-change: width;
 }
 
 .comparison-after {
-    width: auto;
+    width: 100%;
     max-width: none;
 }
 
@@ -2299,6 +2303,12 @@ ol {
         top: .8rem;
         right: .8rem;
         left: .8rem;
+    }
+
+    .comparison-before,
+    .comparison-after {
+        object-fit: cover;
+        object-position: center 46%;
     }
 
     .comparison-status span,

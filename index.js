@@ -9,6 +9,7 @@ const scrollProgress = document.getElementById('scrollProgress');
 const parallaxImages = document.querySelectorAll('.material-wide img, .material-tall img, .studio-visual img');
 const comparison = document.getElementById('comparison');
 const comparisonRange = document.getElementById('comparisonRange');
+const beforeImage = document.getElementById('beforeImage');
 const afterWrap = document.getElementById('afterWrap');
 const afterImage = document.getElementById('afterImage');
 const comparisonLine = document.getElementById('comparisonLine');
@@ -134,12 +135,15 @@ let comparisonVisible = false;
 let comparisonInterrupted = false;
 
 function syncComparison() {
-    if (!comparison || !comparisonRange || !afterWrap || !afterImage || !comparisonLine) return;
+    if (!comparison || !comparisonRange || !beforeImage || !afterWrap || !afterImage || !comparisonLine) return;
     const value = clamp(Number(comparisonRange.value), 0, 100);
     const width = comparison.getBoundingClientRect().width;
+    const splitView = window.innerWidth > 820;
 
     afterWrap.style.width = `${value}%`;
-    afterImage.style.width = `${width}px`;
+    beforeImage.style.left = splitView ? `${value}%` : '0';
+    beforeImage.style.width = splitView ? `${100 - value}%` : '100%';
+    afterImage.style.width = splitView ? '100%' : `${width}px`;
     comparisonLine.style.left = `${value}%`;
     comparisonRange.setAttribute('aria-valuetext', `${Math.round(value)}% of the finished room revealed`);
 }
