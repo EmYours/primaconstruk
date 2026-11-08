@@ -6,7 +6,8 @@ const heroStage = document.querySelector('.hero-stage');
 const hero = document.getElementById('hero');
 const heroCopy = document.getElementById('heroCopy');
 const scrollProgress = document.getElementById('scrollProgress');
-const parallaxImages = document.querySelectorAll('.material-wide img, .material-tall img, .studio-visual img');
+const parallaxImages = document.querySelectorAll('.project-image img, .material-wide img, .material-tall img, .studio-visual img');
+const revealElements = [...document.querySelectorAll('.reveal')];
 const comparison = document.getElementById('comparison');
 const comparisonRange = document.getElementById('comparisonRange');
 const beforeImage = document.getElementById('beforeImage');
@@ -37,6 +38,18 @@ let motionFrame = 0;
 
 const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
 
+function updateMobileReveals() {
+    if (window.innerWidth > 820 || reducedMotionQuery.matches) return;
+
+    revealElements.forEach(element => {
+        if (element.classList.contains('is-visible')) return;
+
+        const bounds = element.getBoundingClientRect();
+        const isInsideViewport = bounds.top < window.innerHeight * .94 && bounds.bottom > 0;
+        if (isInsideViewport) element.classList.add('is-visible');
+    });
+}
+
 function updateScrollMotion() {
     motionFrame = 0;
 
@@ -45,22 +58,31 @@ function updateScrollMotion() {
         scrollProgress.style.transform = `scaleY(${clamp(window.scrollY / scrollablePage)})`;
     }
 
+    updateMobileReveals();
+
     if (!heroStage || !hero || !heroCopy) return;
 
-    const motionEnabled = window.innerWidth > 820 && !reducedMotionQuery.matches;
+    const reducedMotion = reducedMotionQuery.matches;
+    const desktopMotionEnabled = window.innerWidth > 820 && !reducedMotion;
 
     parallaxImages.forEach(image => {
-        if (!motionEnabled) {
+        if (reducedMotion) {
             image.style.setProperty('--parallax-y', '0px');
             return;
         }
 
         const bounds = image.parentElement.getBoundingClientRect();
         const viewportOffset = (bounds.top + (bounds.height / 2) - (window.innerHeight / 2)) / window.innerHeight;
-        image.style.setProperty('--parallax-y', `${clamp(viewportOffset, -1, 1) * -18}px`);
+        const amplitude = desktopMotionEnabled ? 18 : 8;
+        image.style.setProperty('--parallax-y', `${clamp(viewportOffset, -1, 1) * -amplitude}px`);
     });
 
-    if (!motionEnabled) {
+    if (!desktopMotionEnabled) {
+        const mobileHeroProgress = reducedMotion
+            ? 0
+            : clamp(-heroStage.getBoundingClientRect().top / Math.max(1, heroStage.offsetHeight));
+
+        hero.style.setProperty('--hero-mobile-y', `${mobileHeroProgress * -14}px`);
         hero.style.setProperty('--hero-shift', '0px');
         hero.style.setProperty('--hero-translate', '0px');
         hero.style.setProperty('--hero-copy-opacity', '1');
@@ -127,7 +149,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
     rootMargin: '0px 0px -7% 0px'
 });
 
-document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+revealElements.forEach(element => revealObserver.observe(element));
 
 let comparisonAnimationFrame = 0;
 let comparisonAutoStart = 0;
