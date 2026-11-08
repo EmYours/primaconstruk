@@ -168,13 +168,9 @@ ol {
 }
 
 .brand-mark {
-    width: 2.35rem;
-    height: 2.35rem;
-    fill: currentColor;
-}
-
-.brand-mark path:last-child {
-    fill: var(--gold);
+    width: 2.45rem;
+    height: 2.55rem;
+    object-fit: contain;
 }
 
 .brand-wordmark {
@@ -241,8 +237,8 @@ ol {
     position: relative;
     display: grid;
     grid-template-columns: minmax(20rem, 42%) 1fr;
-    min-height: 100vh;
-    min-height: 100svh;
+    height: clamp(42rem, calc(100svh - 5rem), 52rem);
+    min-height: 0;
     padding-top: 5rem;
     background: var(--paper);
     overflow: hidden;
@@ -255,11 +251,11 @@ ol {
     flex-direction: column;
     justify-content: center;
     min-width: 0;
-    padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 5rem) 2.25rem var(--pad);
+    padding: clamp(2.25rem, 5vh, 3.5rem) clamp(2rem, 5vw, 5rem) 3.75rem var(--pad);
 }
 
 .hero-kicker {
-    margin-bottom: clamp(2rem, 5vh, 4.75rem);
+    margin-bottom: clamp(1.4rem, 3vh, 2.25rem);
     opacity: 0;
     animation: hero-rise .8s var(--ease) .1s forwards;
 }
@@ -268,7 +264,7 @@ ol {
     display: flex;
     flex-direction: column;
     font-family: var(--serif);
-    font-size: clamp(4.2rem, 7.6vw, 8.6rem);
+    font-size: clamp(4.2rem, 6.4vw, 7.25rem);
     font-weight: 400;
     letter-spacing: -.055em;
     line-height: .69;
@@ -298,7 +294,7 @@ ol {
 
 .hero-intro {
     max-width: 26rem;
-    margin: clamp(2.7rem, 6vh, 5rem) 0 1.8rem;
+    margin: clamp(1.75rem, 3.5vh, 2.6rem) 0 1.35rem;
     color: var(--ink-soft);
     font-family: var(--serif);
     font-size: clamp(1.35rem, 2vw, 1.8rem);
@@ -344,7 +340,7 @@ ol {
 
 .booking-note {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.4rem;
     left: var(--pad);
     display: flex;
     align-items: center;
@@ -368,8 +364,8 @@ ol {
 
 .hero-media {
     position: relative;
-    min-height: calc(100vh - 5rem);
-    min-height: calc(100svh - 5rem);
+    height: 100%;
+    min-height: 0;
     overflow: hidden;
     clip-path: inset(0 100% 0 0);
     animation: hero-wipe 1.4s var(--ease) .12s forwards;
@@ -1490,12 +1486,12 @@ ol {
     }
 
     .hero-copy {
-        min-height: 32rem;
-        padding: 2.5rem var(--pad) 1.5rem;
+        min-height: 29rem;
+        padding: 2.25rem var(--pad) 1.35rem;
     }
 
     .hero-kicker {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .hero h1 {
@@ -1504,19 +1500,20 @@ ol {
     }
 
     .hero-intro {
-        margin: 2.7rem 0 1.5rem;
+        margin: 2rem 0 1.25rem;
         font-size: 1.3rem;
     }
 
     .booking-note {
         position: static;
         margin-top: auto;
-        padding-top: 2.8rem;
+        padding-top: 1.8rem;
     }
 
     .hero-media {
-        min-height: 70vh;
-        min-height: 70svh;
+        height: auto;
+        min-height: 54vh;
+        min-height: 54svh;
     }
 
     .hero-media img {
