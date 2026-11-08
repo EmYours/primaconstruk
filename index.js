@@ -159,13 +159,8 @@ let comparisonInterrupted = false;
 function syncComparison() {
     if (!comparison || !comparisonRange || !beforeImage || !afterWrap || !afterImage || !comparisonLine) return;
     const value = clamp(Number(comparisonRange.value), 0, 100);
-    const width = comparison.getBoundingClientRect().width;
-    const splitView = window.innerWidth > 820;
 
-    afterWrap.style.width = `${value}%`;
-    beforeImage.style.left = splitView ? `${value}%` : '0';
-    beforeImage.style.width = splitView ? `${100 - value}%` : '100%';
-    afterImage.style.width = splitView ? '100%' : `${width}px`;
+    afterWrap.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
     comparisonLine.style.left = `${value}%`;
     comparisonRange.setAttribute('aria-valuetext', `${Math.round(value)}% of the finished room revealed`);
 }
