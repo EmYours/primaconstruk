@@ -1,11 +1,11 @@
 {
     "id": "bgc-tower",
-    "title": "BGC Tower Fit-Out",
+    "title": "BGC Residence",
     "location": "Bonifacio Global City, Taguig",
     "year": "2026",
-    "summary": "A design-forward corporate workspace fit-out highlighting curved minimalist acoustics and warm ambient lighting.",
-    "description": "A premium corporate headquarters design and build project located in the heart of Bonifacio Global City. The BGC Tower project features double-glazed acoustic floor-to-ceiling glass panel partitioning, bespoke oak reception counters, curved minimalist plaster ceiling details, and warm recessed architectural lighting. Tailored to represent design-forward workspace productivity and executive styling.",
-    "coverImage": "cover.jpg",
+    "summary": "A character-led city residence shaped by warm colour, expressive objects, and sculptural lines.",
+    "description": "A compact BGC residence transformed into a vivid, deeply personal home. Rust-toned seating and cocoa drapery bring warmth to the open living area, while playful art, sculptural dining chairs, layered lighting, and an illuminated arched bedroom feature create a distinct point of view from room to room.",
+    "coverImage": "detail4.jpg",
     "beforeImage": "",
     "afterImage": "",
     "gallery": [
@@ -18,9 +18,9 @@
         "detail6.jpg"
     ],
     "highlights": [
-        { "label": "Acoustic Glass", "value": "Double-Glazed" },
-        { "label": "Reception Desk", "value": "Bespoke Curved Oak" },
-        { "label": "Ceiling Detail", "value": "Curved Plaster" },
-        { "label": "Scope", "value": "Design & Build" }
+        { "label": "Project Type", "value": "City Residence" },
+        { "label": "Palette", "value": "Rust & Cocoa" },
+        { "label": "Feature", "value": "Sculptural Arch" },
+        { "label": "Scope", "value": "Interior Transformation" }
     ]
 }

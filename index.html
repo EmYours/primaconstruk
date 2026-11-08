@@ -1,442 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIMA Construk | Boutique Design, Build & Style Firm</title>
-    <meta name="description" content="PRIMA Construk is a design-forward, boutique design-and-build firm specializing in premium residential and commercial structures. Now accepting projects for 2026.">
-    <!-- Google Fonts -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prima Construk | Design. Build. Transform.</title>
+    <meta name="description" content="Prima Construk is a Quezon City design-and-build studio creating intentional residential and commercial spaces across Metro Manila.">
+    <meta name="theme-color" content="#f0ede5">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181914'/%3E%3Cpath d='M25 18h20c25 0 37 11 37 30S70 78 45 78H34v12H25zm9 9v42h11c19 0 27-7 27-21s-8-21-27-21z' fill='%23f0ede5'/%3E%3C/svg%3E">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prima Construk | Design. Build. Transform.">
+    <meta property="og:description" content="Thoughtful spaces, designed around the way you live.">
+    <meta property="og:image" content="https://primaconstruk.vercel.app/assets/bgc-tower/detail4.jpg">
+    <meta property="og:url" content="https://primaconstruk.vercel.app/">
+    <link rel="canonical" href="https://primaconstruk.vercel.app/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "Prima Construk",
+      "url": "https://primaconstruk.vercel.app/",
+      "email": "primaconstruk@gmail.com",
+      "telephone": "+63 916 212 5661",
+      "areaServed": "Metro Manila, Philippines",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Quezon City",
+        "addressRegion": "Metro Manila",
+        "addressCountry": "PH"
+      },
+      "sameAs": [
+        "https://www.facebook.com/Primaconstruk/",
+        "https://www.instagram.com/primaconstruk/"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Sticky Navigation Header -->
-    <header class="header">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" width="28" height="28" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Outer Nesting Shape -->
-                    <path d="M70 20 L25 50 L25 100 L45 100 L45 60 L70 42 L135 85 L145 78 Z" fill="currentColor"/>
-                    <!-- Inner Nesting Shape -->
-                    <path d="M70 54 L48 68 L48 100 L68 100 L68 78 L95 60 L120 77 L127 72 Z" fill="var(--color-brass-gold)"/>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand-name">PRIMA</span>
-                    <span class="brand-sub">CONSTRUK</span>
-                </div>
-            </a>
-            <nav class="desktop-nav">
-                <a href="#pillars" class="nav-link">Pillars</a>
-                <a href="#company" class="nav-link">Company</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#details" class="nav-link">Details</a>
-                <a href="#contact" class="nav-btn">Inquire for 2026</a>
-            </nav>
-            <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Menu">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#pillars" class="mobile-link">Pillars</a>
-            <a href="#company" class="mobile-link">Company</a>
-            <a href="#portfolio" class="mobile-link">Portfolio</a>
-            <a href="#details" class="mobile-link">Details</a>
-            <a href="#contact" class="mobile-btn">Inquire for 2026</a>
-        </div>
+    <header class="site-header" id="siteHeader">
+        <a class="brand" href="#home" aria-label="Prima Construk home">
+            <svg class="brand-mark" viewBox="0 0 160 120" aria-hidden="true">
+                <path d="M70 20 25 50v50h20V60l25-18 65 43 10-7Z"/>
+                <path d="M70 54 48 68v32h20V78l27-18 25 17 7-5Z"/>
+            </svg>
+            <span class="brand-wordmark">
+                <strong>PRIMA</strong>
+                <small>CONSTRUK</small>
+            </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#studio">Studio</a>
+        </nav>
+
+        <a class="header-cta" href="#inquire">Start a project <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span class="sr-only">Open menu</span>
+        </button>
+
+        <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#studio">Studio</a>
+            <a href="#inquire">Start a project</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="hero-bg-overlay" style="background-image: url('assets/hero.png');"></div>
-        <div class="hero-content-wrapper">
-            <div class="announcement-badge animate-fade-in">
-                <span class="badge-dot"></span>
-                <span>NOW ACCEPTING PROJECTS FOR 2026</span>
+    <main id="main">
+        <section class="hero" id="home" aria-labelledby="heroTitle">
+            <div class="hero-copy">
+                <p class="eyebrow hero-kicker">Quezon City · Metro Manila</p>
+                <h1 id="heroTitle"><span>Design.</span> <span>Build.</span> <em>Transform.</em></h1>
+                <p class="hero-intro">Thoughtful spaces, shaped around the way you live, work, and gather.</p>
+                <div class="hero-actions">
+                    <a class="text-link" href="#projects">Explore transformations <span aria-hidden="true">↓</span></a>
+                    <a class="text-link muted" href="#inquire">Plan your space <span aria-hidden="true">↗</span></a>
+                </div>
+                <p class="booking-note"><span></span> Now booking select 2027 projects</p>
             </div>
-            <h1 class="hero-title animate-slide-up">
-                Building Structures.<br>
-                <span class="serif-accent">Shaping Experiences.</span>
-            </h1>
-            <p class="hero-subtitle animate-slide-up-delayed">
-                Quezon City's boutique design, build, and styling firm. Crafting premium architectural residences and intentional interior spaces.
-            </p>
-            <div class="hero-actions animate-slide-up-delayed">
-                <a href="#contact" class="btn-primary">Book Consultation</a>
-                <a href="#portfolio" class="btn-secondary">View Gallery</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span class="scroll-text">Explore</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+            <figure class="hero-media" aria-label="A warm, character-led Prima Construk interior">
+                <img src="assets/bgc-tower/detail4.jpg" alt="Warm living and dining area with rust seating and sculptural furniture" fetchpriority="high">
+                <figcaption><span>01</span> Spaces with a point of view.</figcaption>
+            </figure>
+            <div class="hero-monogram" aria-hidden="true">P</div>
+        </section>
 
-    <!-- The Pillars (Design, Build, Style) -->
-    <section class="pillars-section" id="pillars">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-subtitle">OUR CAPABILITIES</span>
-                <h2 class="section-title">The Three Pillars</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="pillars-grid">
-                <!-- Pillar 1 -->
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-num">01</div>
-                    <div class="pillar-icon-box">
-                        <i data-lucide="pen-tool"></i>
-                    </div>
-                    <h3 class="pillar-title">Design</h3>
-                    <p class="pillar-description">
-                        Architectural concept, space planning, structural blueprints, and photorealistic 3D rendering tailored to bring your vision into architectural form.
-                    </p>
-                    <ul class="pillar-list">
-                        <li><i data-lucide="chevron-right"></i> Conceptual Blueprints</li>
-                        <li><i data-lucide="chevron-right"></i> Space Optimization</li>
-                        <li><i data-lucide="chevron-right"></i> 3D Visualization</li>
-                    </ul>
-                </div>
-                <!-- Pillar 2 -->
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-num">02</div>
-                    <div class="pillar-icon-box">
-                        <i data-lucide="hammer"></i>
-                    </div>
-                    <h3 class="pillar-title">Build</h3>
-                    <p class="pillar-description">
-                        Full structural construction, site engineering, general contracting, and meticulous project management to deliver code-compliant, premium builds.
-                    </p>
-                    <ul class="pillar-list">
-                        <li><i data-lucide="chevron-right"></i> Engineering Oversight</li>
-                        <li><i data-lucide="chevron-right"></i> Construction Management</li>
-                        <li><i data-lucide="chevron-right"></i> Premium Craftsmanship</li>
-                    </ul>
-                </div>
-                <!-- Pillar 3 -->
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-num">03</div>
-                    <div class="pillar-icon-box">
-                        <i data-lucide="palette"></i>
-                    </div>
-                    <h3 class="pillar-title">Style</h3>
-                    <p class="pillar-description">
-                        Post-construction interior curation, bespoke millwork, custom furniture placement, and styling of surfaces to make a space truly look and feel complete.
-                    </p>
-                    <ul class="pillar-list">
-                        <li><i data-lucide="chevron-right"></i> Interior Material Curation</li>
-                        <li><i data-lucide="chevron-right"></i> Bespoke Millwork</li>
-                        <li><i data-lucide="chevron-right"></i> Turnkey Styling</li>
-                    </ul>
+        <section class="manifesto section-pad reveal" aria-labelledby="manifestoTitle">
+            <p class="eyebrow">What we believe</p>
+            <div class="manifesto-grid">
+                <h2 id="manifestoTitle">A beautiful space should make everyday life feel <em>better.</em></h2>
+                <div class="manifesto-copy">
+                    <p>Prima brings design thinking, technical discipline, and human care into one considered process—from the first conversation to the final detail.</p>
+                    <a class="arrow-link" href="#process">See how we work <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- The Company Section (About, Mission, Vision, Values) -->
-    <section class="company-section" id="company">
-        <div class="section-container">
-            <div class="company-grid">
-                <!-- Left Column: About Us & Mission/Vision -->
-                <div class="company-info-panel scroll-reveal">
-                    <span class="section-subtitle">THE COMPANY</span>
-                    <h2 class="section-title">Crafting Spaces. Uplifting Life.</h2>
-                    <div class="title-underline"></div>
-                    
-                    <div class="company-block">
-                        <h3 class="company-block-title">ABOUT US</h3>
-                        <p class="company-block-text">
-                            At Prima Construk, we don't just build structures — we shape experiences. As a boutique design and build studio based in Quezon City, our passion lies in crafting spaces that uplift everyday life through inspired, thoughtful design.
-                        </p>
-                        <p class="company-block-text">
-                            Guided by our core values — <strong>Personal, Integrity, and Care</strong> — we blend creativity with engineering craftsmanship to deliver iconic, sustainable spaces that leave a lasting impression. Every project is a promise: <em>to design with purpose, build with heart, and always put people first.</em>
-                        </p>
+        <section class="projects-section" id="projects" aria-labelledby="projectsTitle">
+            <header class="section-heading section-pad reveal">
+                <p class="eyebrow">Selected transformations · 2025—2026</p>
+                <h2 id="projectsTitle">Rooms with a reason<br>to stay longer.</h2>
+            </header>
+
+            <article class="project-story project-story-featured reveal">
+                <button class="project-image project-open" type="button" data-project-id="bgc-tower" aria-label="View BGC Residence case study">
+                    <img src="assets/bgc-tower/detail5.jpg" alt="Warm living room with orange sofa and sculptural furniture" loading="lazy">
+                    <span class="image-action">View story <b>↗</b></span>
+                </button>
+                <div class="project-caption">
+                    <div>
+                        <p class="eyebrow">Residential interior · Taguig</p>
+                        <h3>Where personality<br>found its place.</h3>
                     </div>
-
-                    <div class="company-block">
-                        <h3 class="company-block-title">MISSION &amp; VISION</h3>
-                        <div class="mv-item">
-                            <span class="mv-label">Vision</span>
-                            <p class="mv-text">
-                                At Prima Construk, we envision a world where exceptional design and construction elevate everyday life. Through a collaborative and streamlined process, we deliver quality, structural integrity, and sustainability — building trust with every project. Our goal is to craft meaningful spaces while serving as responsible stewards of the environment.
-                            </p>
-                        </div>
-                        <div class="mv-item">
-                            <span class="mv-label">Mission</span>
-                            <p class="mv-text">
-                                Our mission is to improve lives through thoughtful design. We are committed to client satisfaction, empowering our team through growth and mentorship, and making a positive environmental impact by creating spaces that inspire and enrich the world around us.
-                            </p>
-                        </div>
+                    <div class="project-summary">
+                        <p>Warm colour, expressive objects, and sculptural lines turn a compact city home into a deeply personal retreat.</p>
+                        <button class="arrow-link project-open" type="button" data-project-id="bgc-tower">Explore the project <span aria-hidden="true">↗</span></button>
                     </div>
                 </div>
+            </article>
 
-                <!-- Right Column: Core Values Cards -->
-                <div class="company-values-panel scroll-reveal">
-                    <span class="section-subtitle text-right-desktop">OUR ANCHOR</span>
-                    <h2 class="section-title text-right-desktop">Core Values</h2>
-                    <div class="title-underline right-align-desktop"></div>
-
-                    <div class="values-stack">
-                        <!-- Value card 1 -->
-                        <div class="value-card">
-                            <div class="value-icon-box">
-                                <i data-lucide="sparkles"></i>
-                            </div>
-                            <div class="value-card-content">
-                                <h4 class="value-title">Personal</h4>
-                                <p class="value-description">
-                                    We tailor every design to reflect the unique needs, lifestyle, and aspirations of our clients. Your space should tell your story.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Value card 2 -->
-                        <div class="value-card">
-                            <div class="value-icon-box">
-                                <i data-lucide="shield-check"></i>
-                            </div>
-                            <div class="value-card-content">
-                                <h4 class="value-title">Integrity</h4>
-                                <p class="value-description">
-                                    We build trust through complete transparency, honesty, and reliability in every detail, project milestone, and cost estimation.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Value card 3 -->
-                        <div class="value-card">
-                            <div class="value-icon-box">
-                                <i data-lucide="heart"></i>
-                            </div>
-                            <div class="value-card-content">
-                                <h4 class="value-title">Care</h4>
-                                <p class="value-description">
-                                    We prioritize people — their well-being, satisfaction, and the journey they take with us — from the first sketch to the final build.
-                                </p>
-                            </div>
-                        </div>
+            <article class="project-story project-story-secondary reveal">
+                <div class="project-caption">
+                    <div>
+                        <p class="eyebrow">Turnkey styling · Taguig</p>
+                        <h3>A home, softened.</h3>
+                    </div>
+                    <div class="project-summary">
+                        <p>Layered light, olive upholstery, and custom details create a calm place for everyday rituals.</p>
+                        <button class="arrow-link project-open" type="button" data-project-id="l-residence">See the transformation <span aria-hidden="true">↗</span></button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <button class="project-image project-open" type="button" data-project-id="l-residence" aria-label="View L Residence case study">
+                    <img src="assets/l-residence/after.jpg" alt="L Residence living room after transformation" loading="lazy">
+                    <span class="image-action">Before / after <b>↗</b></span>
+                </button>
+            </article>
+        </section>
 
-    <!-- Dynamic Portfolio Showcase Grid -->
-    <section class="portfolio-section" id="portfolio">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-subtitle">PROJECT ARCHIVE</span>
-                <h2 class="section-title">Selected Case Studies</h2>
-                <div class="title-underline"></div>
+        <section class="transformation section-pad" aria-labelledby="transformTitle">
+            <div class="transform-copy reveal">
+                <p class="eyebrow">Swipe to reveal</p>
+                <h2 id="transformTitle">Not just renovated.<br><em>Reimagined.</em></h2>
+                <p>Move the slider to see how a familiar room became a more intentional, comfortable home.</p>
             </div>
-            
-            <div class="portfolio-grid scroll-reveal" id="portfolioGrid">
-                <!-- Dynamically Rendered by JS -->
+            <div class="comparison reveal" id="comparison">
+                <img class="comparison-before" src="assets/l-residence/before.jpeg" alt="Living room before Prima Construk transformation" loading="lazy">
+                <div class="comparison-after-wrap" id="afterWrap">
+                    <img class="comparison-after" id="afterImage" src="assets/l-residence/after.jpg" alt="Living room after Prima Construk transformation" loading="lazy">
+                </div>
+                <span class="comparison-label label-before">Before</span>
+                <span class="comparison-label label-after">After</span>
+                <div class="comparison-line" id="comparisonLine"><span>↔</span></div>
+                <input id="comparisonRange" type="range" min="0" max="100" value="52" aria-label="Reveal before and after comparison">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Materiality & Details Gallery -->
-    <section class="details-section" id="details">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-subtitle">MATERIALITY & CRAFTSMANSHIP</span>
-                <h2 class="section-title">Details. Intention. Experience.</h2>
-                <div class="title-underline"></div>
+        <section class="services section-pad" id="services" aria-labelledby="servicesTitle">
+            <div class="services-intro reveal">
+                <p class="eyebrow">Our capabilities</p>
+                <h2 id="servicesTitle">One studio.<br>The whole journey.</h2>
+                <p>Creative and technical decisions stay connected from concept through construction and styling.</p>
             </div>
-            <div class="details-grid">
-                <!-- Detail Card 1 -->
-                <div class="detail-card scroll-reveal">
-                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail3.jpg'); background-position: center;"></div>
-                    <div class="detail-content">
-                        <h4>Fluted Wood Panels</h4>
-                        <p>Bespoke oak timber detailing that adds geometric rhythm and natural warmth to drop ceilings and focal walls.</p>
-                    </div>
-                </div>
-                <!-- Detail Card 2 -->
-                <div class="detail-card scroll-reveal">
-                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail1.jpg'); background-position: center;"></div>
-                    <div class="detail-content">
-                        <h4>Travertine &amp; Plaster</h4>
-                        <p>Tactile, organic stone surfaces combined with soft stone-wash plaster to mimic natural formations.</p>
-                    </div>
-                </div>
-                <!-- Detail Card 3 -->
-                <div class="detail-card scroll-reveal">
-                    <div class="detail-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/l-residence/detail5.jpg'); background-position: center;"></div>
-                    <div class="detail-content">
-                        <h4>Brushed Antique Gold</h4>
-                        <p>Sophisticated hardware and metallic fixtures providing elegant, warm-toned luxury accents.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <ol class="service-list">
+                <li class="reveal">
+                    <span>01</span>
+                    <h3>Design</h3>
+                    <p>Space planning, architectural concepts, technical drawings, and material direction.</p>
+                    <small>Imagine the right space</small>
+                </li>
+                <li class="reveal">
+                    <span>02</span>
+                    <h3>Build</h3>
+                    <p>Construction management, engineering coordination, fit-out, and quality control.</p>
+                    <small>Make it real, properly</small>
+                </li>
+                <li class="reveal">
+                    <span>03</span>
+                    <h3>Transform</h3>
+                    <p>Interior detailing, custom millwork, lighting, furniture, and final styling.</p>
+                    <small>Complete the experience</small>
+                </li>
+            </ol>
+        </section>
 
-    <!-- Consultation / Booking Form -->
-    <section class="contact-section" id="contact">
-        <div class="section-container form-grid">
-            <div class="contact-info-panel scroll-reveal">
-                <span class="section-subtitle">REGISTRY</span>
-                <h2 class="section-title">Book a Consultation</h2>
-                <p class="contact-subtext">
-                    We are selectively booking turnkey residential and commercial projects for the 2026 calendar. Reach out to secure an introductory meeting with our design directors.
-                </p>
-                <div class="contact-channels">
-                    <div class="channel-item">
-                        <i data-lucide="mail"></i>
-                        <div>
-                            <span class="channel-label">Email Address</span>
-                            <a href="mailto:primaconstruk@gmail.com" class="channel-value">primaconstruk@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="channel-item">
-                        <i data-lucide="phone"></i>
-                        <div>
-                            <span class="channel-label">Direct Line</span>
-                            <span class="channel-value">(+63) 916-212-5661</span>
-                            <span class="channel-value">(+63) 917-711-2190</span>
-                        </div>
-                    </div>
-                    <div class="channel-item">
-                        <i data-lucide="map-pin"></i>
-                        <div>
-                            <span class="channel-label">Headquarters</span>
-                            <span class="channel-value">Quezon City, Metro Manila, Philippines</span>
-                        </div>
-                    </div>
+        <section class="material-story" aria-label="Material and craftsmanship gallery">
+            <figure class="material-wide reveal">
+                <img src="assets/bgc-tower/detail1.jpg" alt="Illuminated arched feature wall and layered textiles" loading="lazy">
+                <figcaption>Light that changes the mood.</figcaption>
+            </figure>
+            <div class="material-copy reveal">
+                <p class="eyebrow">Materiality</p>
+                <blockquote>“The details are not the details. They make the space.”</blockquote>
+                <p>Texture, tone, light, and joinery are treated as one composition—not a list of finishes.</p>
+            </div>
+            <figure class="material-tall reveal">
+                <img src="assets/l-residence/detail3.jpg" alt="Custom blue and timber kitchen cabinetry" loading="lazy">
+                <figcaption>Custom cabinetry · L Residence</figcaption>
+            </figure>
+        </section>
+
+        <section class="process section-pad" id="process" aria-labelledby="processTitle">
+            <div class="process-intro reveal">
+                <p class="eyebrow">The Prima method</p>
+                <h2 id="processTitle">Clear at every step.</h2>
+                <p>A considered process keeps expectations, decisions, and construction moving together.</p>
+                <a class="arrow-link" href="#inquire">Talk through your project <span aria-hidden="true">↗</span></a>
+            </div>
+            <ol class="process-list">
+                <li class="reveal"><span>01</span><div><h3>Discover</h3><p>We listen, visit the space, and define what success should feel like.</p></div></li>
+                <li class="reveal"><span>02</span><div><h3>Design</h3><p>Ideas become layouts, visuals, specifications, and an aligned project direction.</p></div></li>
+                <li class="reveal"><span>03</span><div><h3>Build</h3><p>Our team coordinates trades, quality, timing, and communication on site.</p></div></li>
+                <li class="reveal"><span>04</span><div><h3>Transform</h3><p>Final layers, styling, and careful turnover bring the whole story together.</p></div></li>
+            </ol>
+        </section>
+
+        <section class="studio section-pad" id="studio" aria-labelledby="studioTitle">
+            <div class="studio-visual reveal">
+                <img src="assets/bgc-tower/detail2.jpg" alt="Eclectic custom interior with curated art and objects" loading="lazy">
+            </div>
+            <div class="studio-copy reveal">
+                <p class="eyebrow">The studio</p>
+                <h2 id="studioTitle">Personal by design.</h2>
+                <p>Prima Construk is a Quezon City design-and-build studio guided by three simple values: personal attention, integrity in every decision, and genuine care for how people experience a space.</p>
+                <ul>
+                    <li><span>Personal</span>Every brief begins with the people who will live there.</li>
+                    <li><span>Integrity</span>Clear expectations, honest recommendations, accountable work.</li>
+                    <li><span>Care</span>For the craft, the process, and the life that follows turnover.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="inquiry" id="inquire" aria-labelledby="inquiryTitle">
+            <div class="inquiry-intro reveal">
+                <p class="eyebrow">Start a project</p>
+                <h2 id="inquiryTitle">What do you want<br>to <em>transform?</em></h2>
+                <p>Tell us where you are and what you have in mind. We’ll turn your answers into a project brief and open it directly in WhatsApp with the Prima team.</p>
+                <div class="contact-links">
+                    <a href="mailto:primaconstruk@gmail.com">primaconstruk@gmail.com</a>
+                    <a href="tel:+639162125661">(+63) 916 212 5661</a>
+                    <a href="tel:+639177112190">(+63) 917 711 2190</a>
                 </div>
             </div>
 
-            <div class="contact-form-panel scroll-reveal">
-                <form class="inquiry-form" id="inquiryForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="clientName">Your Name *</label>
-                            <input type="text" id="clientName" name="name" required placeholder="e.g. Maria Santos">
-                        </div>
-                        <div class="form-group">
-                            <label for="clientEmail">Email Address *</label>
-                            <input type="email" id="clientEmail" name="email" required placeholder="e.g. maria@example.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="clientPhone">Contact Number *</label>
-                            <input type="tel" id="clientPhone" name="phone" required placeholder="e.g. +63 917 123 4567">
-                        </div>
-                        <div class="form-group">
-                            <label for="projectLocation">Project Location *</label>
-                            <input type="text" id="projectLocation" name="location" required placeholder="e.g. Quezon City">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="projectScope">Scope of Services Needed</label>
-                        <select id="projectScope" name="scope">
-                            <option value="turnkey">Full Turnkey (Design + Build + Style)</option>
-                            <option value="design-build">Design &amp; Build</option>
-                            <option value="interior-style">Interior Design &amp; Styling</option>
+            <form class="inquiry-form reveal" id="inquiryForm">
+                <div class="form-row">
+                    <label>Your name <input name="name" autocomplete="name" required></label>
+                    <label>Email address <input type="email" name="email" autocomplete="email" required></label>
+                </div>
+                <div class="form-row">
+                    <label>Contact number <input type="tel" name="phone" autocomplete="tel" required></label>
+                    <label>Project location <input name="location" autocomplete="address-level2" required></label>
+                </div>
+                <div class="form-row">
+                    <label>Project type
+                        <select name="projectType" required>
+                            <option value="">Choose one</option>
+                            <option>New build</option>
+                            <option>Residential renovation</option>
+                            <option>Condo fit-out</option>
+                            <option>Commercial fit-out</option>
+                            <option>Interior styling</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="projectNotes">Tell Us About Your Space</label>
-                        <textarea id="projectNotes" name="notes" rows="4" placeholder="Briefly describe the vision for your property, size, and specific requirements..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <span>Send Inquiry Application</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
-                    <div class="form-message" id="formMessage"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Luxury Overlay Project Detail Modal -->
-    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal-wrapper">
-            <button class="modal-close" id="modalClose" aria-label="Close details">
-                <i data-lucide="x"></i>
-            </button>
-            <div class="modal-body" id="modalBody">
-                <!-- Dynamically Rendered by JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery Image Lightbox Overlay -->
-    <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-hidden="true">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">
-            <i data-lucide="x"></i>
-        </button>
-        
-        <button class="lightbox-nav nav-prev" id="lightboxPrev" aria-label="Previous Image">
-            <i data-lucide="chevron-left"></i>
-        </button>
-        
-        <div class="lightbox-content-box">
-            <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
-            <div class="lightbox-meta">
-                <span class="lightbox-counter" id="lightboxCounter">Image 1 of 8</span>
-                <span class="lightbox-hint"><i data-lucide="info"></i> Swipe or use arrow keys to navigate</span>
-            </div>
-        </div>
-        
-        <button class="lightbox-nav nav-next" id="lightboxNext" aria-label="Next Image">
-            <i data-lucide="chevron-right"></i>
-        </button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="logo">
-                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Outer Nesting Shape -->
-                        <path d="M70 20 L25 50 L25 100 L45 100 L45 60 L70 42 L135 85 L145 78 Z" fill="currentColor"/>
-                        <!-- Inner Nesting Shape -->
-                        <path d="M70 54 L48 68 L48 100 L68 100 L68 78 L95 60 L120 77 L127 72 Z" fill="var(--color-brass-gold)"/>
-                    </svg>
-                    <div class="logo-text">
-                        <span class="brand-name">PRIMA</span>
-                        <span class="brand-sub">CONSTRUK</span>
-                    </div>
+                    </label>
+                    <label>Target investment
+                        <select name="budget" required>
+                            <option value="">Choose a range</option>
+                            <option>Below ₱1M</option>
+                            <option>₱1M–₱3M</option>
+                            <option>₱3M–₱6M</option>
+                            <option>₱6M–₱10M</option>
+                            <option>₱10M+</option>
+                            <option>Still exploring</option>
+                        </select>
+                    </label>
                 </div>
-                <p class="footer-tagline">Building Structures. Shaping Experiences.</p>
-            </div>
-            
-            <div class="footer-links">
-                <span class="footer-header">Explore</span>
-                <a href="#hero">Back to Top</a>
-                <a href="#pillars">Pillars</a>
-                <a href="#company">Company Profile</a>
-                <a href="#portfolio">Portfolio Archive</a>
-                <a href="#details">Materiality</a>
-            </div>
+                <label>Tell us about the space
+                    <textarea name="notes" rows="5" placeholder="Property size, desired timeline, what is not working today, and what you hope the space becomes…" required></textarea>
+                </label>
+                <button class="submit-button" type="submit">Message Prima on WhatsApp <span aria-hidden="true">↗</span></button>
+                <p class="form-note" id="formNote" aria-live="polite">You’ll review the pre-filled project brief in WhatsApp before sending it.</p>
+                <div class="social-handoff" aria-label="Other ways to contact Prima Construk">
+                    <span>Prefer another channel?</span>
+                    <a href="https://m.me/Primaconstruk" target="_blank" rel="noreferrer">Messenger <span aria-hidden="true">↗</span></a>
+                    <a href="https://www.instagram.com/primaconstruk/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+                </div>
+            </form>
+        </section>
+    </main>
 
-            <div class="footer-social">
-                <span class="footer-header">Follow Us</span>
-                <a href="https://instagram.com/primaconstruk" target="_blank" class="social-link">
-                    <i data-lucide="instagram"></i>
-                    <span>@primaconstruk</span>
-                </a>
-                <a href="https://facebook.com/primaconstruk" target="_blank" class="social-link">
-                    <i data-lucide="facebook"></i>
-                    <span>PRIMA Construk</span>
-                </a>
-            </div>
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <a class="brand brand-light" href="#home" aria-label="Prima Construk home">
+                <svg class="brand-mark" viewBox="0 0 160 120" aria-hidden="true"><path d="M70 20 25 50v50h20V60l25-18 65 43 10-7Z"/><path d="M70 54 48 68v32h20V78l27-18 25 17 7-5Z"/></svg>
+                <span class="brand-wordmark"><strong>PRIMA</strong><small>CONSTRUK</small></span>
+            </a>
+        </div>
+        <div class="footer-brandline">Design. Build.<br><em>Transform.</em></div>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/primaconstruk/" target="_blank" rel="noreferrer">Instagram ↗</a>
+            <a href="https://www.facebook.com/Primaconstruk/" target="_blank" rel="noreferrer">Facebook ↗</a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 PRIMA Construk. All rights reserved. Boutique Design & Build in Quezon City, Philippines.</p>
+            <span>Quezon City · Metro Manila</span>
+            <span>© <span id="year"></span> Prima Construk</span>
         </div>
     </footer>
+
+    <a class="whatsapp" href="https://wa.me/639162125661?text=Hello%20Prima%20Construk%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer" aria-label="Message Prima Construk on WhatsApp">
+        <span>Let’s talk</span><b>↗</b>
+    </a>
+
+    <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
+        <button class="dialog-close" id="dialogClose" type="button" aria-label="Close project story">×</button>
+        <div class="dialog-content" id="dialogContent"></div>
+    </dialog>
 
     <script src="assets/projects-data.js"></script>
     <script src="index.js"></script>
