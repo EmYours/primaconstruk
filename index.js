@@ -6,6 +6,11 @@ const hero = document.getElementById('hero');
 const heroCopy = document.getElementById('heroCopy');
 const scrollProgress = document.getElementById('scrollProgress');
 const parallaxImages = document.querySelectorAll('.material-wide img, .material-tall img, .studio-visual img');
+const comparison = document.getElementById('comparison');
+const comparisonRange = document.getElementById('comparisonRange');
+const afterWrap = document.getElementById('afterWrap');
+const afterImage = document.getElementById('afterImage');
+const comparisonLine = document.getElementById('comparisonLine');
 const projectDialog = document.getElementById('projectDialog');
 const dialogContent = document.getElementById('dialogContent');
 const dialogClose = document.getElementById('dialogClose');
@@ -120,6 +125,92 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 });
 
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+
+let comparisonAnimationFrame = 0;
+let comparisonAutoStart = 0;
+let comparisonVisible = false;
+let comparisonInterrupted = false;
+
+function syncComparison() {
+    if (!comparison || !comparisonRange || !afterWrap || !afterImage || !comparisonLine) return;
+    const value = clamp(Number(comparisonRange.value), 0, 100);
+    const width = comparison.getBoundingClientRect().width;
+
+    afterWrap.style.width = `${value}%`;
+    afterImage.style.width = `${width}px`;
+    comparisonLine.style.left = `${value}%`;
+    comparisonRange.setAttribute('aria-valuetext', `${Math.round(value)}% of the finished room revealed`);
+}
+
+function animateComparison(timestamp) {
+    comparisonAnimationFrame = 0;
+    if (!comparisonVisible || comparisonInterrupted || reducedMotionQuery.matches || !comparisonRange) return;
+
+    if (!comparisonAutoStart) comparisonAutoStart = timestamp;
+    comparisonRange.value = String(50 + (18 * Math.sin((timestamp - comparisonAutoStart) / 900)));
+    syncComparison();
+    comparisonAnimationFrame = window.requestAnimationFrame(animateComparison);
+}
+
+function startComparisonAuto() {
+    if (comparisonAnimationFrame || !comparisonVisible || comparisonInterrupted || reducedMotionQuery.matches) return;
+    comparisonAutoStart = 0;
+    comparisonAnimationFrame = window.requestAnimationFrame(animateComparison);
+}
+
+function stopComparisonAuto() {
+    if (comparisonInterrupted) return;
+    comparisonInterrupted = true;
+    comparison?.classList.add('is-interacted');
+    if (comparisonAnimationFrame) window.cancelAnimationFrame(comparisonAnimationFrame);
+    comparisonAnimationFrame = 0;
+}
+
+function updateComparisonVisibility() {
+    if (!comparison) return;
+    const bounds = comparison.getBoundingClientRect();
+    const visibleHeight = Math.max(0, Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, 0));
+    comparisonVisible = visibleHeight >= Math.min(bounds.height * .28, window.innerHeight * .28);
+
+    if (comparisonVisible) {
+        comparison.classList.add('is-visible');
+        startComparisonAuto();
+        return;
+    }
+
+    if (comparisonAnimationFrame) window.cancelAnimationFrame(comparisonAnimationFrame);
+    comparisonAnimationFrame = 0;
+}
+
+['pointerdown', 'touchstart', 'keydown', 'focus'].forEach(eventName => {
+    comparisonRange?.addEventListener(eventName, stopComparisonAuto, { passive: eventName === 'touchstart' });
+});
+
+comparisonRange?.addEventListener('input', () => {
+    stopComparisonAuto();
+    syncComparison();
+});
+
+window.addEventListener('scroll', updateComparisonVisibility, { passive: true });
+window.addEventListener('resize', () => {
+    syncComparison();
+    updateComparisonVisibility();
+}, { passive: true });
+window.addEventListener('load', () => {
+    syncComparison();
+    updateComparisonVisibility();
+});
+reducedMotionQuery.addEventListener?.('change', () => {
+    if (reducedMotionQuery.matches && comparisonAnimationFrame) {
+        window.cancelAnimationFrame(comparisonAnimationFrame);
+        comparisonAnimationFrame = 0;
+        return;
+    }
+
+    startComparisonAuto();
+});
+syncComparison();
+updateComparisonVisibility();
 
 function projectWithPaths(project) {
     const base = `assets/${project.id}/`;

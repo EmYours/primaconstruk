@@ -301,7 +301,7 @@ ol {
     font-size: clamp(4.2rem, 6.4vw, 7.25rem);
     font-weight: 400;
     letter-spacing: -.055em;
-    line-height: .69;
+    line-height: .9;
     white-space: nowrap;
 }
 
@@ -313,6 +313,7 @@ ol {
 }
 
 .hero h1 span:first-child {
+    margin-bottom: .08em;
     animation-delay: .18s;
 }
 
@@ -734,56 +735,146 @@ ol {
     color: var(--ink-soft);
 }
 
-.transformation-pair {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(.6rem, 1.2vw, 1.25rem);
-}
-
-.transformation-frame {
+.comparison {
     position: relative;
-    aspect-ratio: 4 / 5;
+    width: 100%;
+    height: min(62vw, 78vh, 54rem);
+    min-height: 32rem;
     overflow: hidden;
     background: #c9c4ba;
+    cursor: ew-resize;
+    isolation: isolate;
 }
 
-.transformation-frame img {
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1s var(--ease);
-}
-
-.transformation-frame:hover img {
-    transform: scale(1.025);
-}
-
-.transformation-frame::after {
+.comparison-before,
+.comparison-after,
+.comparison-after-wrap {
     position: absolute;
-    inset: auto 0 0;
-    height: 28%;
-    background: linear-gradient(transparent, rgba(17, 18, 14, .68));
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.comparison-before,
+.comparison-after {
+    object-fit: cover;
+    object-position: center 46%;
+}
+
+.comparison-after-wrap {
+    z-index: 1;
+    width: 50%;
+    overflow: hidden;
+    will-change: width;
+}
+
+.comparison-after {
+    width: auto;
+    max-width: none;
+}
+
+.comparison::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 12, 9, .08), transparent 24%, transparent 72%, rgba(10, 12, 9, .32));
     content: "";
     pointer-events: none;
 }
 
-.transformation-frame figcaption {
+.comparison-line {
     position: absolute;
-    z-index: 1;
-    right: 1.5rem;
-    bottom: 1.4rem;
-    left: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    color: white;
-    font-size: .68rem;
-    font-weight: 600;
-    letter-spacing: .13em;
-    text-transform: uppercase;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(255, 255, 255, .92);
+    pointer-events: none;
+    will-change: left;
 }
 
-.transformation-frame figcaption span {
-    color: rgba(255, 255, 255, .7);
+.comparison-line span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 50%;
+    background: rgba(37, 40, 31, .8);
+    color: white;
+    font-size: .78rem;
+    letter-spacing: -.06em;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 .6rem 2rem rgba(15, 16, 13, .18);
+}
+
+.comparison input[type="range"] {
+    position: absolute;
+    z-index: 6;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    touch-action: pan-y;
+}
+
+.comparison:has(input:focus-visible) .comparison-line span {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.comparison-status {
+    position: absolute;
+    z-index: 3;
+    top: 1.25rem;
+    right: 1.25rem;
+    left: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.comparison-status span,
+.comparison-hint {
+    padding: .55rem .7rem;
+    background: rgba(24, 25, 20, .72);
+    color: white;
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+}
+
+.comparison-hint {
+    position: absolute;
+    z-index: 3;
+    bottom: 1.25rem;
+    left: 50%;
+    display: flex;
+    gap: .55rem;
+    align-items: center;
+    transform: translateX(-50%);
+    pointer-events: none;
+    transition: opacity .45s ease;
+}
+
+.comparison-hint span {
+    width: .4rem;
+    height: .4rem;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.comparison.is-interacted .comparison-hint {
+    opacity: 0;
 }
 
 .services {
@@ -1448,7 +1539,7 @@ ol {
 }
 
 .project-story.reveal .project-image,
-.transformation-pair.reveal .transformation-frame,
+.comparison.reveal,
 .material-wide.reveal,
 .material-tall.reveal,
 .studio-visual.reveal {
@@ -1457,7 +1548,7 @@ ol {
 }
 
 .project-story.reveal.is-visible .project-image,
-.transformation-pair.reveal.is-visible .transformation-frame,
+.comparison.reveal.is-visible,
 .material-wide.reveal.is-visible,
 .material-tall.reveal.is-visible,
 .studio-visual.reveal.is-visible {
@@ -1465,7 +1556,8 @@ ol {
 }
 
 .project-story.reveal .project-image img,
-.transformation-pair.reveal .transformation-frame img,
+.comparison.reveal > img,
+.comparison.reveal .comparison-after,
 .material-wide.reveal img,
 .material-tall.reveal img,
 .studio-visual.reveal img {
@@ -1473,7 +1565,8 @@ ol {
 }
 
 .project-story.reveal.is-visible .project-image img,
-.transformation-pair.reveal.is-visible .transformation-frame img,
+.comparison.reveal.is-visible > img,
+.comparison.reveal.is-visible .comparison-after,
 .material-wide.reveal.is-visible img,
 .material-tall.reveal.is-visible img,
 .studio-visual.reveal.is-visible img {
@@ -1481,7 +1574,6 @@ ol {
 }
 
 .project-story.reveal.is-visible .project-image:hover img,
-.transformation-pair.reveal.is-visible .transformation-frame:hover img,
 .material-wide.reveal.is-visible:hover img,
 .material-tall.reveal.is-visible:hover img {
     transform: scale(1.025);
@@ -1650,7 +1742,7 @@ ol {
 
     .hero h1 {
         font-size: clamp(4rem, 18vw, 6rem);
-        line-height: .72;
+        line-height: .9;
     }
 
     .hero-intro {
@@ -1761,10 +1853,12 @@ ol {
         padding-bottom: 0;
     }
 
-    .transformation-pair {
-        grid-template-columns: 1fr;
+    .comparison {
         width: calc(100% + (var(--pad) * 2));
+        height: auto;
+        min-height: 0;
         margin-left: calc(var(--pad) * -1);
+        aspect-ratio: 4 / 5;
     }
 
     .services,
@@ -1935,7 +2029,7 @@ ol {
 
     .hero h1 {
         font-size: clamp(3.45rem, 17.5vw, 4.15rem);
-        line-height: .7;
+        line-height: .88;
     }
 
     .hero-intro {
@@ -2015,7 +2109,7 @@ ol {
 
     .reveal :is(h2, h3, blockquote),
     .project-story.reveal .project-image,
-    .transformation-pair.reveal .transformation-frame,
+    .comparison.reveal,
     .material-wide.reveal,
     .material-tall.reveal,
     .studio-visual.reveal {
