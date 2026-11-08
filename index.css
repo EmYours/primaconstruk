@@ -1015,113 +1015,69 @@ ol {
     text-underline-offset: .25rem;
 }
 
-.inquiry-form {
-    display: grid;
-    gap: 1.65rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.6rem;
-}
-
-.inquiry-form label {
-    display: grid;
-    gap: .55rem;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-}
-
-.inquiry-form input,
-.inquiry-form select,
-.inquiry-form textarea {
-    width: 100%;
-    padding: .9rem 0;
-    border: 0;
-    border-bottom: 1px solid rgba(248, 246, 240, .55);
-    border-radius: 0;
-    outline: 0;
-    background: transparent;
-    color: white;
-    font-size: 1rem;
-    letter-spacing: normal;
-    text-transform: none;
-    transition: border-color .25s;
-}
-
-.inquiry-form select {
-    color-scheme: dark;
-}
-
-.inquiry-form select option {
-    background: var(--ink);
-}
-
-.inquiry-form textarea {
-    resize: vertical;
-}
-
-.inquiry-form input:focus,
-.inquiry-form select:focus,
-.inquiry-form textarea:focus {
-    border-bottom-color: white;
-}
-
-.inquiry-form textarea::placeholder {
-    color: rgba(248, 246, 240, .5);
-}
-
-.submit-button {
+.social-contact {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.social-contact-kicker {
+    margin-bottom: 2.4rem;
+    color: rgba(248, 246, 240, .64);
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+.social-contact-links {
+    border-top: 1px solid rgba(248, 246, 240, .28);
+}
+
+.social-contact-link {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1.2rem 1.5rem;
-    border: 1px solid var(--paper-light);
-    background: var(--paper-light);
-    color: var(--rust);
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    transition: background .3s, color .3s;
+    gap: 2rem;
+    min-height: 8rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(248, 246, 240, .28);
+    transition: color .3s, padding .35s var(--ease);
 }
 
-.submit-button:hover {
-    background: transparent;
-    color: white;
+.social-contact-link:hover {
+    padding-left: 1rem;
+    color: var(--gold);
 }
 
-.form-note {
-    color: rgba(248, 246, 240, .65);
-    font-size: .72rem;
+.social-contact-link span {
+    display: grid;
+    gap: .35rem;
 }
 
-.social-handoff {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: .55rem 1.2rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(248, 246, 240, .22);
+.social-contact-link small {
     color: rgba(248, 246, 240, .58);
-    font-size: .66rem;
+    font-size: .62rem;
     font-weight: 600;
-    letter-spacing: .1em;
+    letter-spacing: .14em;
     text-transform: uppercase;
 }
 
-.social-handoff a {
-    color: var(--paper-light);
-    transition: opacity .25s;
+.social-contact-link strong {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.6vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -.025em;
+    line-height: 1;
 }
 
-.social-handoff a:hover {
-    opacity: .65;
+.social-contact-link b {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.social-contact-note {
+    margin-top: 1.5rem;
+    color: rgba(248, 246, 240, .52);
+    font-size: .7rem;
 }
 
 .site-footer {
@@ -1188,7 +1144,7 @@ ol {
     text-transform: uppercase;
 }
 
-.whatsapp {
+.social-float {
     position: fixed;
     z-index: 80;
     right: max(1.25rem, env(safe-area-inset-right));
@@ -1209,11 +1165,11 @@ ol {
     transition: transform .3s var(--ease);
 }
 
-.whatsapp:hover {
+.social-float:hover {
     transform: translateY(-.25rem);
 }
 
-.whatsapp b {
+.social-float b {
     display: grid;
     place-items: center;
     width: 2rem;
@@ -1785,10 +1741,6 @@ ol {
         flex-direction: column;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
     .studio-copy li {
         grid-template-columns: 1fr;
         gap: .25rem;
@@ -1812,11 +1764,11 @@ ol {
         gap: .5rem;
     }
 
-    .whatsapp span {
+    .social-float span {
         display: none;
     }
 
-    .whatsapp {
+    .social-float {
         padding: .45rem;
     }
 

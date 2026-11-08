@@ -156,38 +156,4 @@ projectDialog?.addEventListener('close', () => {
     document.body.classList.remove('dialog-open');
 });
 
-const inquiryForm = document.getElementById('inquiryForm');
-const formNote = document.getElementById('formNote');
-
-inquiryForm?.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!inquiryForm.reportValidity()) return;
-
-    const data = new FormData(inquiryForm);
-    const name = data.get('name');
-    const body = [
-        'Hello Prima Construk,',
-        '',
-        'I would like to discuss a project.',
-        '',
-        `Name: ${name}`,
-        `Email: ${data.get('email')}`,
-        `Contact number: ${data.get('phone')}`,
-        `Project location: ${data.get('location')}`,
-        `Project type: ${data.get('projectType')}`,
-        `Target investment: ${data.get('budget')}`,
-        '',
-        'About the space:',
-        data.get('notes'),
-        '',
-        'Thank you.'
-    ].join('\n');
-
-    if (formNote) {
-        formNote.textContent = 'Your project brief is ready. Opening WhatsApp now…';
-    }
-
-    window.location.href = `https://wa.me/639162125661?text=${encodeURIComponent(body)}`;
-});
-
 document.getElementById('year').textContent = new Date().getFullYear();
