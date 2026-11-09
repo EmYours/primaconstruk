@@ -6,7 +6,7 @@ const heroStage = document.querySelector('.hero-stage');
 const hero = document.getElementById('hero');
 const heroCopy = document.getElementById('heroCopy');
 const scrollProgress = document.getElementById('scrollProgress');
-const parallaxImages = document.querySelectorAll('.project-image img, .material-wide img, .material-tall img');
+const parallaxImages = document.querySelectorAll('.project-image img, .material-wide img, .material-tall img, .studio-visual img');
 const revealElements = [...document.querySelectorAll('.reveal')];
 const roomAssembly = document.getElementById('roomAssembly');
 const roomScene = document.getElementById('roomScene');
@@ -16,6 +16,12 @@ const roomAssemblyProgress = document.getElementById('roomAssemblyProgress');
 const roomSofaLayer = document.getElementById('roomSofaLayer');
 const roomDiningLayer = document.getElementById('roomDiningLayer');
 const roomFinalLayer = document.getElementById('roomFinalLayer');
+const studioSection = document.getElementById('studio');
+const studioStoryStack = document.getElementById('studioStoryStack');
+const studioStoryKicker = document.getElementById('studioStoryKicker');
+const studioStoryTitle = document.getElementById('studioStoryTitle');
+const studioStoryMeta = document.getElementById('studioStoryMeta');
+const studioValueItems = [...document.querySelectorAll('[data-studio-value]')];
 const comparison = document.getElementById('comparison');
 const comparisonRange = document.getElementById('comparisonRange');
 const beforeImage = document.getElementById('beforeImage');
@@ -32,6 +38,39 @@ const escapeHTML = (value = '') => String(value)
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+
+const studioStories = window.PRIMA_STUDIO_STORIES || [];
+let studioStoryFrames = [];
+let activeStudioStory = -1;
+
+function renderStudioStories() {
+    if (!studioStoryStack || !studioStories.length) return;
+
+    const allowedTones = new Set(['clay', 'olive', 'stone']);
+    studioStoryStack.innerHTML = studioStories.map((story, index) => {
+        const tone = allowedTones.has(story.tone) ? story.tone : ['clay', 'olive', 'stone'][index % 3];
+        const visual = story.image
+            ? `<img src="${escapeHTML(story.image)}" alt="${escapeHTML(story.alt || story.title)}" loading="lazy" decoding="async">`
+            : `<div class="studio-story-placeholder" role="img" aria-label="${escapeHTML(story.title)} image placeholder"><span>Project image placeholder</span><strong>${String(index + 1).padStart(2, '0')}</strong></div>`;
+
+        return `<figure class="studio-story-frame" data-tone="${tone}">${visual}</figure>`;
+    }).join('');
+
+    studioStoryFrames = [...studioStoryStack.querySelectorAll('.studio-story-frame')];
+}
+
+function setActiveStudioStory(index) {
+    if (!studioStories.length || index === activeStudioStory) return;
+    const story = studioStories[index];
+    activeStudioStory = index;
+
+    if (studioStoryKicker) studioStoryKicker.textContent = story.kicker;
+    if (studioStoryTitle) studioStoryTitle.textContent = story.title;
+    if (studioStoryMeta) studioStoryMeta.textContent = story.meta;
+    studioValueItems.forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === index));
+}
+
+renderStudioStories();
 
 function updateHeader() {
     siteHeader?.classList.toggle('scrolled', window.scrollY > 24);
@@ -103,6 +142,57 @@ function updateRoomAssembly() {
     }
 }
 
+function updateStudioStories() {
+    if (!studioSection || !studioStoryFrames.length) return;
+
+    if (reducedMotionQuery.matches) {
+        studioStoryFrames.forEach((frame, index) => {
+            frame.style.opacity = index === 0 ? '1' : '0';
+            frame.style.transform = 'none';
+            frame.style.zIndex = String(studioStoryFrames.length - index);
+        });
+        setActiveStudioStory(0);
+        return;
+    }
+
+    const bounds = studioSection.getBoundingClientRect();
+    const scrollDistance = Math.max(1, studioSection.offsetHeight - window.innerHeight);
+    const progress = clamp(-bounds.top / scrollDistance);
+    const position = progress * (studioStoryFrames.length - 1);
+    const activeIndex = Math.min(studioStoryFrames.length - 1, Math.max(0, Math.round(position)));
+
+    studioStoryFrames.forEach((frame, index) => {
+        const distance = index - position;
+        let opacity;
+        let translateX;
+        let translateY;
+        let rotate;
+        let scale;
+
+        if (distance < 0) {
+            const exit = Math.min(1, Math.abs(distance));
+            opacity = 1 - exit;
+            translateX = exit * -42;
+            translateY = exit * -24;
+            rotate = exit * -5;
+            scale = 1 - (exit * .035);
+        } else {
+            const depth = Math.min(2, distance);
+            opacity = Math.max(.28, 1 - (depth * .34));
+            translateX = depth * 24;
+            translateY = depth * 38;
+            rotate = depth * 2.4;
+            scale = 1 - (depth * .055);
+        }
+
+        frame.style.opacity = String(opacity);
+        frame.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotate(${rotate}deg) scale(${scale})`;
+        frame.style.zIndex = String(20 - Math.round(Math.max(0, distance) * 2) - index);
+    });
+
+    setActiveStudioStory(activeIndex);
+}
+
 function updateMobileReveals() {
     if (window.innerWidth > 820 || reducedMotionQuery.matches) return;
 
@@ -125,6 +215,7 @@ function updateScrollMotion() {
 
     updateMobileReveals();
     updateRoomAssembly();
+    updateStudioStories();
 
     if (!heroStage || !hero || !heroCopy) return;
 
