@@ -956,6 +956,25 @@ ol {
     display: none;
 }
 
+@media (min-width: 821px) {
+    .project-index {
+        width: min(100%, 104rem);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .project-index-image,
+    .project-index-item:nth-child(4n + 2) .project-index-image,
+    .project-index-item:nth-child(4n + 3) .project-index-image {
+        height: clamp(28rem, 34vw, 40rem);
+        aspect-ratio: auto;
+    }
+
+    .project-index-item:nth-child(even) {
+        margin-top: clamp(2rem, 5vw, 5rem);
+    }
+}
+
 .transformation {
     display: grid;
     gap: clamp(3.5rem, 6vw, 6rem);
