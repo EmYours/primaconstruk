@@ -238,19 +238,27 @@
             </ol>
         </section>
 
-        <section class="studio section-pad" id="studio" aria-labelledby="studioTitle">
-            <div class="studio-visual reveal">
-                <img src="assets/bgc-tower/detail2.jpg" alt="Eclectic custom interior with curated art and objects" loading="lazy">
-            </div>
-            <div class="studio-copy reveal">
-                <p class="eyebrow">The studio</p>
-                <h2 id="studioTitle">Personal by design.</h2>
-                <p>Prima Construk is a Quezon City design-and-build studio guided by three simple values: personal attention, integrity in every decision, and genuine care for how people experience a space.</p>
-                <ul>
-                    <li><span>Personal</span>Every brief begins with the people who will live there.</li>
-                    <li><span>Integrity</span>Clear expectations, honest recommendations, accountable work.</li>
-                    <li><span>Care</span>For the craft, the process, and the life that follows turnover.</li>
-                </ul>
+        <section class="studio" id="studio" aria-labelledby="studioTitle">
+            <div class="studio-sticky">
+                <div class="studio-story-visual" id="studioStoryVisual" aria-label="Replaceable project story placeholders">
+                    <div class="studio-story-stack" id="studioStoryStack"></div>
+                    <div class="studio-story-caption" aria-live="polite">
+                        <span id="studioStoryKicker">Placeholder 01</span>
+                        <strong id="studioStoryTitle">Residential transformation</strong>
+                        <small id="studioStoryMeta">Project location · Year</small>
+                    </div>
+                    <span class="studio-story-instruction" aria-hidden="true">Scroll to browse ↓</span>
+                </div>
+                <div class="studio-copy">
+                    <p class="eyebrow">The studio</p>
+                    <h2 id="studioTitle">Personal by design.</h2>
+                    <p>Prima Construk is a Quezon City design-and-build studio guided by three simple values: personal attention, integrity in every decision, and genuine care for how people experience a space.</p>
+                    <ul>
+                        <li data-studio-value="0"><span>Personal</span>Every brief begins with the people who will live there.</li>
+                        <li data-studio-value="1"><span>Integrity</span>Clear expectations, honest recommendations, accountable work.</li>
+                        <li data-studio-value="2"><span>Care</span>For the craft, the process, and the life that follows turnover.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -311,6 +319,7 @@
     </dialog>
 
     <script src="assets/projects-data.js"></script>
+    <script src="assets/studio-stories.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
