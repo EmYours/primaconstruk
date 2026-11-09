@@ -8,6 +8,14 @@ const heroCopy = document.getElementById('heroCopy');
 const scrollProgress = document.getElementById('scrollProgress');
 const parallaxImages = document.querySelectorAll('.project-image img, .material-wide img, .material-tall img, .studio-visual img');
 const revealElements = [...document.querySelectorAll('.reveal')];
+const roomAssembly = document.getElementById('roomAssembly');
+const roomScene = document.getElementById('roomScene');
+const roomAssemblyCopy = document.getElementById('roomAssemblyCopy');
+const roomAssemblyLabel = document.getElementById('roomAssemblyLabel');
+const roomAssemblyProgress = document.getElementById('roomAssemblyProgress');
+const roomSofaLayer = document.getElementById('roomSofaLayer');
+const roomDiningLayer = document.getElementById('roomDiningLayer');
+const roomFinalLayer = document.getElementById('roomFinalLayer');
 const comparison = document.getElementById('comparison');
 const comparisonRange = document.getElementById('comparisonRange');
 const beforeImage = document.getElementById('beforeImage');
@@ -37,6 +45,63 @@ const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 let motionFrame = 0;
 
 const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
+const smoothStep = value => {
+    const progress = clamp(value);
+    return progress * progress * (3 - (2 * progress));
+};
+
+function setAssemblyLayer(element, progress, startX, startY, startScale = .96) {
+    if (!element) return;
+    element.style.opacity = String(progress);
+    element.style.transform = `translate3d(${(1 - progress) * startX}vw, ${(1 - progress) * startY}vh, 0) scale(${startScale + ((1 - startScale) * progress)})`;
+}
+
+function updateRoomAssembly() {
+    if (!roomAssembly || !roomScene) return;
+
+    if (reducedMotionQuery.matches) {
+        [roomSofaLayer, roomDiningLayer]
+            .forEach(layer => {
+                if (layer) layer.style.opacity = '0';
+            });
+        if (roomFinalLayer) roomFinalLayer.style.opacity = '1';
+        if (roomAssemblyCopy) {
+            roomAssemblyCopy.style.opacity = '1';
+            roomAssemblyCopy.style.transform = 'none';
+        }
+        if (roomAssemblyProgress) roomAssemblyProgress.style.transform = 'scaleX(1)';
+        if (roomAssemblyLabel) roomAssemblyLabel.textContent = '04 / The complete room';
+        return;
+    }
+
+    const bounds = roomAssembly.getBoundingClientRect();
+    const scrollDistance = Math.max(1, roomAssembly.offsetHeight - window.innerHeight);
+    const progress = clamp(-bounds.top / scrollDistance);
+    const sofaProgress = smoothStep((progress - .08) / .24);
+    const diningProgress = smoothStep((progress - .38) / .22);
+    const finalProgress = smoothStep((progress - .72) / .18);
+    const copyExit = window.innerWidth <= 820 ? 0 : smoothStep((progress - .52) / .15);
+
+    setAssemblyLayer(roomSofaLayer, sofaProgress, -18, 8);
+    setAssemblyLayer(roomDiningLayer, diningProgress, 18, 7);
+
+    if (roomFinalLayer) roomFinalLayer.style.opacity = String(finalProgress);
+    if (roomAssemblyProgress) roomAssemblyProgress.style.transform = `scaleX(${progress})`;
+    if (roomAssemblyCopy) {
+        roomAssemblyCopy.style.opacity = String(1 - copyExit);
+        roomAssemblyCopy.style.transform = `translate3d(0, ${copyExit * -24}px, 0)`;
+    }
+
+    if (roomAssemblyLabel) {
+        roomAssemblyLabel.textContent = progress < .28
+            ? '01 / The shell'
+            : progress < .52
+                ? '02 / The living layer'
+                : progress < .78
+                    ? '03 / Dining and detail'
+                    : '04 / The complete room';
+    }
+}
 
 function updateMobileReveals() {
     if (window.innerWidth > 820 || reducedMotionQuery.matches) return;
@@ -59,6 +124,7 @@ function updateScrollMotion() {
     }
 
     updateMobileReveals();
+    updateRoomAssembly();
 
     if (!heroStage || !hero || !heroCopy) return;
 

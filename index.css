@@ -942,74 +942,159 @@ ol {
     font-style: italic;
 }
 
-.material-story {
-    display: grid;
-    grid-template-columns: 1.2fr .7fr .75fr;
-    min-height: 52rem;
-    background: var(--olive);
+.room-assembly {
+    position: relative;
+    height: 320vh;
+    min-height: 180rem;
+    background: #252b20;
     color: var(--paper-light);
 }
 
-.material-wide,
-.material-tall {
-    position: relative;
-    min-height: 42rem;
+.room-assembly-sticky {
+    position: sticky;
+    z-index: 1;
+    top: 5rem;
+    height: calc(100vh - 5rem);
+    height: calc(100svh - 5rem);
+    min-height: 38rem;
     overflow: hidden;
 }
 
-.material-wide img,
-.material-tall img {
+.room-scene,
+.room-canvas {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center calc(50% + var(--parallax-y, 0px));
-    transition: transform 1.1s var(--ease);
 }
 
-.material-wide:hover img,
-.material-tall:hover img {
-    transform: scale(1.025);
+.room-scene {
+    overflow: hidden;
+    background: #252b20;
+    isolation: isolate;
 }
 
-.material-wide figcaption,
-.material-tall figcaption {
+.room-canvas {
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    left: 1rem;
-    color: white;
+    inset: 0;
+    overflow: hidden;
+}
+
+.room-canvas::after {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(12, 14, 10, .72), rgba(12, 14, 10, .2) 42%, transparent 70%),
+        linear-gradient(180deg, rgba(12, 14, 10, .24), transparent 38%, rgba(12, 14, 10, .16));
+    content: "";
+    pointer-events: none;
+}
+
+.room-canvas img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    user-select: none;
+}
+
+.room-base {
+    z-index: 1;
+}
+
+.room-layer {
+    z-index: 2;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.room-layer-sofa {
+    clip-path: inset(31% 38% 4% 0);
+    transform: translate3d(-18vw, 8vh, 0) scale(.96);
+}
+
+.room-layer-dining {
+    clip-path: inset(38% 2% 7% 59%);
+    transform: translate3d(18vw, 7vh, 0) scale(.96);
+}
+
+.room-final {
+    z-index: 3;
+    opacity: 0;
+    will-change: opacity;
+}
+
+.room-assembly-copy {
+    position: absolute;
+    z-index: 5;
+    top: clamp(3rem, 8vh, 6rem);
+    left: var(--pad);
+    width: min(31rem, 38vw);
+    text-shadow: 0 2px 22px rgba(0, 0, 0, .35);
+    will-change: opacity, transform;
+}
+
+.room-assembly-copy .eyebrow {
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, .78);
+}
+
+.room-assembly-copy h2 {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 5.6vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: -.045em;
+    line-height: .86;
+}
+
+.room-assembly-copy h2 em {
+    color: #dbad4c;
+    font-weight: 400;
+}
+
+.room-assembly-copy > p:last-child {
+    margin-top: 1.6rem;
+    color: rgba(255, 255, 255, .72);
+    font-size: .88rem;
+}
+
+.room-assembly-status {
+    position: absolute;
+    z-index: 5;
+    right: var(--pad);
+    bottom: 1.8rem;
+    left: var(--pad);
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, .78);
     font-size: .62rem;
     font-weight: 600;
     letter-spacing: .12em;
     text-transform: uppercase;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
 }
 
-.material-wide img {
-    object-position: center;
+.room-assembly-progress {
+    position: absolute;
+    z-index: 5;
+    right: var(--pad);
+    bottom: 1rem;
+    left: var(--pad);
+    height: 1px;
+    background: rgba(255, 255, 255, .25);
+    overflow: hidden;
 }
 
-.material-tall img {
-    object-position: center;
-}
-
-.material-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: clamp(2.5rem, 5vw, 5rem);
-}
-
-.material-copy blockquote {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 4vw, 4.5rem);
-    line-height: .95;
-}
-
-.material-copy > p:last-child {
-    color: rgba(248, 246, 240, .7);
-    font-size: .9rem;
+.room-assembly-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #dbad4c;
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
 }
 
 .process {
@@ -2403,6 +2488,62 @@ ol {
         aspect-ratio: 5 / 6;
     }
 
+    .room-assembly {
+        height: 260svh;
+        min-height: 105rem;
+    }
+
+    .room-assembly-sticky {
+        top: 4rem;
+        height: calc(100svh - 4rem);
+        min-height: 0;
+    }
+
+    .room-canvas {
+        top: auto;
+        bottom: 4.75rem;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .room-canvas::after {
+        background: linear-gradient(180deg, rgba(12, 14, 10, .12), transparent 42%, rgba(12, 14, 10, .24));
+    }
+
+    .room-assembly-copy {
+        top: 1.6rem;
+        width: calc(100% - (var(--pad) * 2));
+        text-shadow: none;
+    }
+
+    .room-assembly-copy .eyebrow {
+        margin-bottom: 1rem;
+    }
+
+    .room-assembly-copy h2 {
+        max-width: 22rem;
+        font-size: clamp(3rem, 13vw, 4rem);
+        line-height: .88;
+    }
+
+    .room-assembly-copy > p:last-child {
+        margin-top: 1.1rem;
+        font-size: .78rem;
+    }
+
+    .room-assembly-status {
+        bottom: 2rem;
+        font-size: .53rem;
+    }
+
+    .room-assembly-status span:last-child {
+        display: none;
+    }
+
+    .room-assembly-progress {
+        bottom: 1.25rem;
+    }
+
     .process-list li {
         grid-template-columns: 2.5rem 1fr;
         gap: 1rem;
@@ -2701,6 +2842,39 @@ ol {
     .scroll-progress,
     .hero-brand-reveal {
         display: none;
+    }
+
+    .room-assembly {
+        height: auto;
+        min-height: 0;
+    }
+
+    .room-assembly-sticky {
+        position: relative;
+        top: auto;
+        height: auto;
+        min-height: 0;
+    }
+
+    .room-scene {
+        min-height: clamp(38rem, 62vw, 52rem);
+    }
+
+    .room-layer {
+        opacity: 0 !important;
+    }
+
+    .room-final {
+        opacity: 1 !important;
+    }
+
+    .room-assembly-copy {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .room-assembly-progress span {
+        transform: scaleX(1) !important;
     }
 
     .hero-stage {
