@@ -49,11 +49,12 @@ function renderStudioStories() {
     const allowedTones = new Set(['clay', 'olive', 'stone']);
     studioStoryStack.innerHTML = studioStories.map((story, index) => {
         const tone = allowedTones.has(story.tone) ? story.tone : ['clay', 'olive', 'stone'][index % 3];
+        const fit = story.fit === 'contain' ? 'contain' : 'cover';
         const visual = story.image
             ? `<img src="${escapeHTML(story.image)}" alt="${escapeHTML(story.alt || story.title)}" loading="lazy" decoding="async">`
             : `<div class="studio-story-placeholder" role="img" aria-label="${escapeHTML(story.title)} image placeholder"><span>Project image placeholder</span><strong>${String(index + 1).padStart(2, '0')}</strong></div>`;
 
-        return `<figure class="studio-story-frame" data-tone="${tone}">${visual}</figure>`;
+        return `<figure class="studio-story-frame" data-tone="${tone}" data-fit="${fit}">${visual}</figure>`;
     }).join('');
 
     studioStoryFrames = [...studioStoryStack.querySelectorAll('.studio-story-frame')];

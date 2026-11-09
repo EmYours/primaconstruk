@@ -1,35 +1,34 @@
 /**
- * STUDIO STORY PLACEHOLDERS
- *
- * Replace `image: ""` with a real project image path when one is available.
- * The animated layout, captions, and mobile treatment update automatically.
+ * Studio identity sequence.
+ * Keep this data separate from the layout so future team portraits can be
+ * swapped in without rebuilding the scroll animation.
  */
 window.PRIMA_STUDIO_STORIES = [
     {
-        image: "",
-        alt: "",
-        kicker: "Placeholder 01",
-        title: "Residential transformation",
-        meta: "Project location · Year",
-        note: "Replace with a finished-space photograph.",
-        tone: "clay"
+        image: "assets/studio-identity/princess.jpg",
+        alt: "Architect Princess Carla Seriosa, CEO and founding partner of Prima Construk",
+        kicker: "Meet the designer",
+        title: "Ar. Princess Carla Seriosa",
+        meta: "CEO · Founding Partner",
+        tone: "clay",
+        fit: "contain"
     },
     {
-        image: "",
-        alt: "",
-        kicker: "Placeholder 02",
-        title: "Detail and material study",
-        meta: "Material · Craft · Light",
-        note: "Replace with a construction or detail photograph.",
-        tone: "olive"
+        image: "assets/studio-identity/paulene.jpg",
+        alt: "Architect Paulene David, COO and founding partner of Prima Construk",
+        kicker: "Meet the designer",
+        title: "Ar. Paulene David",
+        meta: "COO · Founding Partner",
+        tone: "olive",
+        fit: "contain"
     },
     {
-        image: "",
-        alt: "",
-        kicker: "Placeholder 03",
-        title: "A completed point of view",
-        meta: "Project location · Year",
-        note: "Replace with the final hero photograph.",
-        tone: "stone"
+        image: "assets/studio-identity/team.jpg",
+        alt: "The skilled workers and wider team behind Prima Construk",
+        kicker: "Built by people",
+        title: "The team behind every finish.",
+        meta: "Design · Build · Transform",
+        tone: "stone",
+        fit: "contain"
     }
 ];

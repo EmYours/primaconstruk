@@ -1197,6 +1197,10 @@ ol {
     object-fit: cover;
 }
 
+.studio-story-frame[data-fit="contain"] img {
+    object-fit: contain;
+}
+
 .studio-story-placeholder {
     position: relative;
     display: grid;
@@ -1279,6 +1283,11 @@ ol {
     text-transform: uppercase;
 }
 
+.studio-story-caption > span {
+    grid-row: 1;
+    grid-column: 1;
+}
+
 .studio-story-caption strong {
     grid-row: 2;
     font-family: var(--serif);
@@ -1286,8 +1295,13 @@ ol {
     font-weight: 400;
 }
 
+.studio-story-caption strong[hidden] {
+    display: none;
+}
+
 .studio-story-caption small {
-    grid-row: 1 / span 2;
+    grid-row: 1;
+    grid-column: 2;
     text-align: right;
 }
 
@@ -1308,7 +1322,7 @@ ol {
 
 .studio-copy h2 {
     margin: 2rem 0;
-    font-size: clamp(4rem, 6vw, 6.7rem);
+    font-size: clamp(3.75rem, 5.3vw, 6rem);
 }
 
 .studio-copy > p {
@@ -2727,7 +2741,7 @@ ol {
     .studio-sticky {
         top: 4rem;
         grid-template-columns: 1fr;
-        grid-template-rows: 43% 57%;
+        grid-template-rows: 52% 48%;
         height: calc(100svh - 4rem);
         min-height: 0;
     }
@@ -2766,7 +2780,7 @@ ol {
 
     .studio-copy h2 {
         margin: .7rem 0;
-        font-size: clamp(2.8rem, 12vw, 3.6rem);
+        font-size: clamp(2.4rem, 10.5vw, 3.25rem);
         line-height: .9;
     }
 
@@ -3038,7 +3052,7 @@ ol {
 
 @media (max-width: 820px) and (max-height: 700px) {
     .studio-sticky {
-        grid-template-rows: 40% 60%;
+        grid-template-rows: 50% 50%;
     }
 
     .studio-story-stack {
