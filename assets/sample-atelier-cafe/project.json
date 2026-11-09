@@ -1,0 +1,14 @@
+{
+    "title": "Atelier Café",
+    "location": "San Juan, Metro Manila",
+    "year": "2027",
+    "category": "Hospitality",
+    "order": 6,
+    "placeholder": true,
+    "summary": "A sample neighborhood café with warm timber and a sculptural service counter.",
+    "description": "This sample entry shows how hospitality work will join the portfolio. Replace the placeholder assets with approved project material when it is ready.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Hospitality Interior" }
+    ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Marikina Townhouse sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#756d63"/>
+  <path d="M115 1220V600l485-370 485 370v620Z" fill="none" stroke="#efe9df" stroke-width="4"/>
+  <path d="M360 1220V770h480v450M600 770v450" stroke="#c8a65c" stroke-width="5"/>
+  <text x="80" y="180" fill="#f0ede5" font-family="Georgia,serif" font-size="150">09</text>
+</svg>

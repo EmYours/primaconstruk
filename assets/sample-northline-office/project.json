@@ -1,0 +1,14 @@
+{
+    "title": "Northline Office",
+    "location": "Makati City, Metro Manila",
+    "year": "2027",
+    "category": "Commercial",
+    "order": 5,
+    "placeholder": true,
+    "summary": "A sample workplace balancing focused rooms with collaborative space.",
+    "description": "This sample entry demonstrates a future commercial case study. Replace it with final plans, photography, and verified project information before publication.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Commercial Fit-out" }
+    ]
+}

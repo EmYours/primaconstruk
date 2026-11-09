@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Courtyard House sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#d8d0c2"/>
+  <rect x="145" y="230" width="910" height="1040" fill="none" stroke="#252b20" stroke-width="3"/>
+  <rect x="350" y="465" width="500" height="570" fill="#667054"/>
+  <circle cx="600" cy="750" r="145" fill="#d8d0c2"/>
+  <text x="80" y="180" fill="#252b20" font-family="Georgia,serif" font-size="150">04</text>
+</svg>

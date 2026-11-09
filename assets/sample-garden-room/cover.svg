@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Garden Room sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#d8d0c1"/>
+  <path d="M0 1120c220-180 380-80 550-210 190-145 310-75 650-310v900H0Z" fill="#4f6246"/>
+  <rect x="170" y="360" width="860" height="620" fill="none" stroke="#262c24" stroke-width="4"/>
+  <circle cx="780" cy="615" r="165" fill="#c49a55" opacity=".85"/>
+  <text x="80" y="180" fill="#252b20" font-family="Georgia,serif" font-size="150">10</text>
+</svg>

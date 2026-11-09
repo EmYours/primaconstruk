@@ -1,0 +1,14 @@
+{
+    "title": "Courtyard House",
+    "location": "Quezon City, Metro Manila",
+    "year": "2027",
+    "category": "Residential",
+    "order": 4,
+    "placeholder": true,
+    "summary": "A sample family home organized around a planted central court.",
+    "description": "This sample entry reserves a place for a future courtyard residence. Replace the placeholder cover and copy when approved project material becomes available.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Design and Build" }
+    ]
+}

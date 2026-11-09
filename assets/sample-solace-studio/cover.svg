@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Solace Studio sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#69745c"/>
+  <path d="M160 1230V560c0-220 178-398 398-398h482v1068Z" fill="#e7e0d4"/>
+  <path d="M300 1230V720c0-130 105-235 235-235h340" fill="none" stroke="#bd8a57" stroke-width="5"/>
+  <circle cx="750" cy="820" r="125" fill="#69745c"/>
+  <text x="80" y="180" fill="#f0ede5" font-family="Georgia,serif" font-size="150">08</text>
+</svg>

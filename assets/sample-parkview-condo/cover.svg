@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Parkview Condo sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#d9d3c8"/>
+  <rect x="120" y="310" width="960" height="880" fill="#7c806e"/>
+  <path d="M120 880h960M510 310v880" stroke="#f4f0e7" stroke-width="3"/>
+  <circle cx="795" cy="635" r="160" fill="#b15435"/>
+  <text x="80" y="180" fill="#24271f" font-family="Georgia,serif" font-size="150">07</text>
+</svg>

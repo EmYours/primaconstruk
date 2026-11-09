@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Atelier Cafe sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#b99062"/>
+  <path d="M80 1190h1040V720c-220-190-820-190-1040 0Z" fill="#eee7dc"/>
+  <path d="M315 1190V810c0-160 130-290 290-290s290 130 290 290v380" fill="none" stroke="#56392b" stroke-width="18"/>
+  <circle cx="605" cy="850" r="95" fill="#667054"/>
+  <text x="80" y="180" fill="#392c25" font-family="Georgia,serif" font-size="150">06</text>
+</svg>

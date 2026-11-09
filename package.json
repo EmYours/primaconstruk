@@ -1,0 +1,8 @@
+{
+    "name": "prima-construk-portfolio",
+    "private": true,
+    "scripts": {
+        "projects:sync": "node scripts/build-site.mjs --sync-only",
+        "build": "node scripts/build-site.mjs"
+    }
+}

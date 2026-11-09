@@ -1,0 +1,14 @@
+{
+    "title": "Sierra House",
+    "location": "Antipolo, Rizal",
+    "year": "2027",
+    "category": "Residential",
+    "order": 3,
+    "placeholder": true,
+    "summary": "A placeholder for a hillside home shaped around filtered light and framed views.",
+    "description": "This sample entry demonstrates how a future residential project will appear in the Prima portfolio. Replace this folder with approved project photography and final case-study copy.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Residential" }
+    ]
+}

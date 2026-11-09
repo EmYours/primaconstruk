@@ -1,0 +1,14 @@
+{
+    "title": "Marikina Townhouse",
+    "location": "Marikina City, Metro Manila",
+    "year": "2027",
+    "category": "In Progress",
+    "order": 9,
+    "placeholder": true,
+    "summary": "A sample in-progress renovation joining two levels into one family home.",
+    "description": "This sample entry shows how an active project can appear in the archive before completion. Replace it with site images and progress notes when the project is approved for publication.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Stage", "value": "In Progress" }
+    ]
+}

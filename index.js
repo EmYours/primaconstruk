@@ -31,6 +31,10 @@ const comparisonLine = document.getElementById('comparisonLine');
 const projectDialog = document.getElementById('projectDialog');
 const dialogContent = document.getElementById('dialogContent');
 const dialogClose = document.getElementById('dialogClose');
+const projectIndex = document.getElementById('projectIndex');
+const projectFilters = document.getElementById('projectFilters');
+const projectArchiveCount = document.getElementById('projectArchiveCount');
+const projectArchiveMore = document.getElementById('projectArchiveMore');
 
 const escapeHTML = (value = '') => String(value)
     .replaceAll('&', '&amp;')
@@ -406,8 +410,90 @@ function projectWithPaths(project) {
     };
 }
 
+const archivePageSize = 6;
+let archiveFilter = 'All';
+let archiveVisibleCount = archivePageSize;
+
+function archiveProjects() {
+    const projects = window.PRIMA_PROJECTS || [];
+    return archiveFilter === 'All'
+        ? projects
+        : projects.filter(project => project.category === archiveFilter);
+}
+
+function archiveProjectMarkup(project, index) {
+    const data = projectWithPaths(project);
+    const status = project.placeholder ? 'Sample project' : (project.category || 'Project');
+    const itemNumber = String(index + 1).padStart(2, '0');
+
+    return `
+        <article class="project-index-item" style="--archive-delay: ${(index % archivePageSize) * 55}ms">
+            <button class="project-index-image project-open" type="button" data-project-id="${escapeHTML(project.id)}" aria-label="View ${escapeHTML(project.title)} project">
+                <img src="${escapeHTML(data.coverImage)}" alt="${escapeHTML(project.title)} cover" loading="lazy" decoding="async">
+                <span>${escapeHTML(status)}</span>
+                <b aria-hidden="true">↗</b>
+            </button>
+            <div class="project-index-caption">
+                <span>${itemNumber}</span>
+                <div>
+                    <p>${escapeHTML(project.category || 'Project')} · ${escapeHTML(project.location)}</p>
+                    <h4>${escapeHTML(project.title)}</h4>
+                </div>
+                <small>${escapeHTML(project.year)}</small>
+            </div>
+        </article>
+    `;
+}
+
+function renderProjectArchive() {
+    if (!projectIndex) return;
+
+    const filteredProjects = archiveProjects();
+    const visibleProjects = filteredProjects.slice(0, archiveVisibleCount);
+    projectIndex.innerHTML = visibleProjects.map(archiveProjectMarkup).join('');
+
+    if (projectArchiveCount) {
+        const label = filteredProjects.length === 1 ? 'project' : 'projects';
+        projectArchiveCount.textContent = `${filteredProjects.length} ${label}`;
+    }
+
+    if (projectArchiveMore) {
+        const hasMore = visibleProjects.length < filteredProjects.length;
+        projectArchiveMore.hidden = !hasMore;
+        projectArchiveMore.querySelector('span').textContent = hasMore
+            ? `Load ${Math.min(archivePageSize, filteredProjects.length - visibleProjects.length)} more projects`
+            : 'All projects shown';
+    }
+
+    requestAnimationFrame(() => {
+        projectIndex.querySelectorAll('.project-index-item').forEach(item => item.classList.add('is-visible'));
+    });
+}
+
+projectFilters?.addEventListener('click', event => {
+    const filterButton = event.target.closest('[data-project-filter]');
+    if (!filterButton) return;
+
+    archiveFilter = filterButton.dataset.projectFilter;
+    archiveVisibleCount = archivePageSize;
+    projectFilters.querySelectorAll('[data-project-filter]').forEach(button => {
+        const isActive = button === filterButton;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+    });
+    renderProjectArchive();
+});
+
+projectArchiveMore?.addEventListener('click', () => {
+    archiveVisibleCount += archivePageSize;
+    renderProjectArchive();
+});
+
+renderProjectArchive();
+
 function buildProjectDialog(project) {
     const data = projectWithPaths(project);
+    const yearLabel = data.placeholder ? 'Preview year' : (data.category === 'In Progress' ? 'Timeline' : 'Completed');
     const facts = (data.highlights || []).map(item => `
         <div class="dialog-fact">
             <span>${escapeHTML(item.label)}</span>
@@ -437,7 +523,7 @@ function buildProjectDialog(project) {
                 <p class="dialog-description">${escapeHTML(data.description)}</p>
                 <div class="dialog-facts">
                     <div class="dialog-fact"><span>Location</span><span>${escapeHTML(data.location)}</span></div>
-                    <div class="dialog-fact"><span>Completed</span><span>${escapeHTML(data.year)}</span></div>
+                    <div class="dialog-fact"><span>${yearLabel}</span><span>${escapeHTML(data.year)}</span></div>
                     ${facts}
                 </div>
             </div>
@@ -465,8 +551,9 @@ function openProject(projectId) {
     });
 }
 
-document.querySelectorAll('.project-open').forEach(button => {
-    button.addEventListener('click', () => openProject(button.dataset.projectId));
+document.addEventListener('click', event => {
+    const projectButton = event.target.closest('.project-open');
+    if (projectButton) openProject(projectButton.dataset.projectId);
 });
 
 dialogClose?.addEventListener('click', () => projectDialog?.close());

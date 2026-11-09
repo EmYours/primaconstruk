@@ -1,0 +1,14 @@
+{
+    "title": "Solace Studio",
+    "location": "Pasig City, Metro Manila",
+    "year": "2027",
+    "category": "Commercial",
+    "order": 8,
+    "placeholder": true,
+    "summary": "A sample wellness studio designed around calm circulation and natural texture.",
+    "description": "This sample entry demonstrates another commercial project type. Replace the cover, description, and highlights with verified project content.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Wellness Interior" }
+    ]
+}

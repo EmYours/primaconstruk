@@ -1,0 +1,14 @@
+{
+    "title": "The Garden Room",
+    "location": "Quezon City, Metro Manila",
+    "year": "2027",
+    "category": "Residential",
+    "order": 10,
+    "placeholder": true,
+    "summary": "A sample extension connecting everyday living with a shaded garden edge.",
+    "description": "This sample entry completes the ten-project archive preview. Replace it with final imagery and project information when a suitable Prima project is ready.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Residential Extension" }
+    ]
+}

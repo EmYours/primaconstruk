@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title">
+  <title id="title">Sierra House sample project placeholder</title>
+  <rect width="1200" height="1500" fill="#a55d3d"/>
+  <path d="M0 1040 430 610l350 250 420-420v1060H0Z" fill="#243024" opacity=".9"/>
+  <circle cx="880" cy="350" r="210" fill="none" stroke="#f0ede5" stroke-width="2" opacity=".7"/>
+  <text x="80" y="180" fill="#f0ede5" font-family="Georgia,serif" font-size="150">03</text>
+</svg>

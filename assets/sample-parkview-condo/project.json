@@ -1,0 +1,14 @@
+{
+    "title": "Parkview Condo",
+    "location": "Mandaluyong, Metro Manila",
+    "year": "2027",
+    "category": "Residential",
+    "order": 7,
+    "placeholder": true,
+    "summary": "A sample compact residence planned for storage, softness, and city light.",
+    "description": "This sample entry reserves an archive position for a compact residential transformation. Replace it with approved photographs and final project details.",
+    "highlights": [
+        { "label": "Status", "value": "Sample Project" },
+        { "label": "Scope", "value": "Condominium Interior" }
+    ]
+}

@@ -3,6 +3,8 @@
     "title": "BGC Residence",
     "location": "Bonifacio Global City, Taguig",
     "year": "2026",
+    "category": "Residential",
+    "order": 1,
     "summary": "A character-led city residence shaped by warm colour, expressive objects, and sculptural lines.",
     "description": "A compact BGC residence transformed into a vivid, deeply personal home. Rust-toned seating and cocoa drapery bring warmth to the open living area, while playful art, sculptural dining chairs, layered lighting, and an illuminated arched bedroom feature create a distinct point of view from room to room.",
     "coverImage": "detail4.jpg",
