@@ -399,14 +399,25 @@ updateComparisonVisibility();
 
 function projectWithPaths(project) {
     const base = `assets/${project.id}/`;
-    const imagePath = path => path ? `${base}${path}` : '';
+    const imagePath = path => {
+        if (!path) return '';
+        if (/^(?:https?:)?\/\//i.test(path) || path.startsWith('/') || path.startsWith('data:')) return path;
+        return `${base}${path}`;
+    };
 
     return {
         ...project,
         coverImage: imagePath(project.coverImage),
         beforeImage: imagePath(project.beforeImage),
         afterImage: imagePath(project.afterImage),
-        gallery: (project.gallery || []).map(imagePath)
+        gallery: (project.gallery || []).map(item => {
+            const source = typeof item === 'string' ? item : (item.src || item.url || '');
+            return {
+                src: imagePath(source),
+                alt: typeof item === 'string' ? '' : (item.alt || ''),
+                caption: typeof item === 'string' ? '' : (item.caption || '')
+            };
+        }).filter(item => item.src)
     };
 }
 
@@ -501,9 +512,9 @@ function buildProjectDialog(project) {
         </div>
     `).join('');
 
-    const gallery = data.gallery.map((src, index) => `
+    const gallery = data.gallery.map((item, index) => `
         <figure>
-            <img src="${escapeHTML(src)}" alt="${escapeHTML(data.title)} project view ${index + 1}" loading="lazy">
+            <img src="${escapeHTML(item.src)}" alt="${escapeHTML(item.alt || `${data.title} project view ${index + 1}`)}" loading="lazy">
         </figure>
     `).join('');
 

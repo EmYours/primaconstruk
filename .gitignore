@@ -1,3 +1,11 @@
 dist/
 output/
 .playwright-cli/
+node_modules/
+studio/node_modules/
+studio/dist/
+studio/.sanity/
+.env
+.env.local
+studio/.env
+studio/.env.local

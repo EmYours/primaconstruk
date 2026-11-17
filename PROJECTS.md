@@ -1,5 +1,12 @@
 # Adding a project
 
+The build supports two project sources:
+
+- Sanity CMS when `SANITY_PROJECT_ID` exists in the build environment
+- Local folders when CMS settings are absent or the CMS request fails
+
+Sanity takes priority after you connect it. See `CMS.md` for setup and publishing instructions. The folder workflow below remains available for local development and rollback.
+
 Create one folder inside `assets/`. The folder name becomes the project ID used by the website.
 
 ```text
@@ -40,7 +47,7 @@ You may set `coverImage`, `beforeImage`, `afterImage`, or `gallery` in the JSON 
 
 ## Publish it
 
-Commit the folder and push it to GitHub. Vercel runs `npm run build`, scans every folder containing `project.json`, and rebuilds the project registry. You do not need to edit `index.html`, `index.js`, or `assets/projects-data.js`.
+Without Sanity configured, commit the folder and push it to GitHub. Vercel runs `npm run build`, scans every folder containing `project.json`, and rebuilds the project registry. You do not need to edit `index.html`, `index.js`, or `assets/projects-data.js`.
 
 Run this command when you want to refresh the registry locally:
 

@@ -3,6 +3,13 @@
     "private": true,
     "scripts": {
         "projects:sync": "node scripts/build-site.mjs --sync-only",
-        "build": "node scripts/build-site.mjs"
+        "build": "node scripts/build-site.mjs",
+        "cms:dev": "npm --prefix studio run dev",
+        "cms:build": "npm --prefix studio run build",
+        "cms:deploy": "npm --prefix studio run deploy"
+    },
+    "dependencies": {
+        "@sanity/client": "^8.16.0",
+        "dotenv": "^17.2.3"
     }
 }
