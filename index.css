@@ -129,14 +129,6 @@ ol {
     padding-right: var(--pad);
 }
 
-.eyebrow {
-    font-size: .68rem;
-    font-weight: 600;
-    letter-spacing: .18em;
-    line-height: 1.3;
-    text-transform: uppercase;
-}
-
 .site-header {
     position: fixed;
     inset: 0 0 auto;
@@ -286,12 +278,6 @@ ol {
     opacity: var(--hero-copy-opacity);
     transform: translate3d(0, var(--hero-copy-y), 0);
     will-change: opacity, transform;
-}
-
-.hero-kicker {
-    margin-bottom: clamp(1.4rem, 3vh, 2.25rem);
-    opacity: 0;
-    animation: hero-rise .8s var(--ease) .1s forwards;
 }
 
 .hero h1 {
@@ -509,17 +495,12 @@ ol {
     background: var(--paper);
 }
 
-.manifesto > .eyebrow {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--line);
-}
-
 .manifesto-grid {
     display: grid;
     grid-template-columns: 1.55fr .65fr;
     gap: clamp(4rem, 10vw, 10rem);
     align-items: end;
-    padding-top: clamp(2.5rem, 6vw, 5.5rem);
+    padding-top: 0;
 }
 
 .manifesto h2,
@@ -667,7 +648,7 @@ ol {
 }
 
 .project-caption h3 {
-    margin-top: 1.4rem;
+    margin-top: 0;
     font-family: var(--serif);
     font-size: clamp(3rem, 6vw, 6.6rem);
     font-weight: 400;
@@ -721,7 +702,7 @@ ol {
 }
 
 .project-archive-heading h3 {
-    margin-top: 1.5rem;
+    margin-top: 0;
     font-family: var(--serif);
     font-size: clamp(3.8rem, 6vw, 6.5rem);
     font-weight: 400;
@@ -1304,11 +1285,6 @@ ol {
     will-change: opacity, transform;
 }
 
-.room-assembly-copy .eyebrow {
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, .78);
-}
-
 .room-assembly-copy h2 {
     font-family: var(--serif);
     font-size: clamp(3.5rem, 5.6vw, 6.5rem);
@@ -1588,7 +1564,7 @@ ol {
 }
 
 .studio-copy h2 {
-    margin: 2rem 0;
+    margin: 0 0 2rem;
     font-size: clamp(3.75rem, 5.3vw, 6rem);
 }
 
@@ -1641,7 +1617,7 @@ ol {
 }
 
 .inquiry-intro h2 {
-    margin: 2.5rem 0;
+    margin: 0 0 2.5rem;
     font-size: clamp(3.8rem, 6.2vw, 6.8rem);
 }
 
@@ -2264,10 +2240,6 @@ ol {
         transform: none;
     }
 
-    .hero-kicker {
-        margin-bottom: 2rem;
-    }
-
     .hero h1 {
         font-size: clamp(4rem, 18vw, 6rem);
         line-height: .9;
@@ -2551,10 +2523,6 @@ ol {
         padding-bottom: 1rem;
     }
 
-    .hero-kicker {
-        margin-bottom: 1.6rem;
-    }
-
     .hero h1 {
         font-size: clamp(3.45rem, 17.5vw, 4.15rem);
         line-height: .88;
@@ -2678,11 +2646,6 @@ ol {
         padding: 1.5rem var(--pad) 1.4rem;
     }
 
-    .hero-kicker {
-        margin-bottom: 1.25rem;
-        font-size: .58rem;
-    }
-
     .hero h1 {
         font-size: clamp(3.55rem, 16vw, 4.75rem);
         line-height: .84;
@@ -2744,7 +2707,7 @@ ol {
 
     .manifesto-grid {
         gap: 2rem;
-        padding-top: 2rem;
+        padding-top: 0;
     }
 
     .manifesto h2,
@@ -2788,7 +2751,7 @@ ol {
 
     .project-caption h3,
     .project-story-secondary .project-caption h3 {
-        margin-top: .85rem;
+        margin-top: 0;
         font-size: clamp(2.75rem, 12vw, 3.75rem);
         line-height: .9;
     }
@@ -2937,10 +2900,6 @@ ol {
         text-shadow: none;
     }
 
-    .room-assembly-copy .eyebrow {
-        margin-bottom: 1rem;
-    }
-
     .room-assembly-copy h2 {
         max-width: 22rem;
         font-size: clamp(3rem, 13vw, 4rem);
@@ -2987,7 +2946,7 @@ ol {
     }
 
     .studio-copy h2 {
-        margin: 1.4rem 0;
+        margin: 0 0 1.4rem;
     }
 
     .studio-copy ul {
@@ -3046,7 +3005,7 @@ ol {
     }
 
     .studio-copy h2 {
-        margin: .7rem 0;
+        margin: 0 0 .7rem;
         font-size: clamp(2.4rem, 10.5vw, 3.25rem);
         line-height: .9;
     }
@@ -3082,7 +3041,7 @@ ol {
     }
 
     .inquiry-intro h2 {
-        margin: 1.5rem 0;
+        margin: 0 0 1.5rem;
     }
 
     .contact-links {
@@ -3336,7 +3295,7 @@ ol {
     }
 
     .studio-copy h2 {
-        margin: .45rem 0;
+        margin: 0 0 .45rem;
         font-size: clamp(2.35rem, 11vw, 3rem);
     }
 
@@ -3372,7 +3331,7 @@ ol {
     }
 
     .project-archive-heading h3 {
-        margin-top: 1rem;
+        margin-top: 0;
         font-size: clamp(3.2rem, 14vw, 4.6rem);
     }
 

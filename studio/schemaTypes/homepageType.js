@@ -20,7 +20,6 @@ export const homepageType = defineType({
             to: [{ type: 'project' }],
             description: 'Choose a project that contains both before and after images.'
         }),
-        defineField({ name: 'heroEyebrow', title: 'Hero eyebrow', type: 'string', validation: rule => rule.max(80) }),
         defineField({ name: 'heroSupportingText', title: 'Hero supporting text', type: 'text', rows: 3, validation: rule => rule.max(220) })
     ],
     preview: {

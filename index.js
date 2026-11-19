@@ -522,7 +522,6 @@ function buildProjectDialog(project) {
         <article>
             <div class="dialog-hero">
                 <div class="dialog-heading">
-                    <p class="eyebrow">${escapeHTML(data.location)} · ${escapeHTML(data.year)}</p>
                     <h2 id="dialogTitle">${escapeHTML(data.title)}</h2>
                     <p>${escapeHTML(data.summary)}</p>
                 </div>
